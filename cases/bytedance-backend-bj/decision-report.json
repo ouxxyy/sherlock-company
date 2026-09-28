@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "company": "字节跳动（抖音集团）",
+    "position": "后端开发工程师（社招意向）",
+    "city": "北京",
+    "investigation_date": "2026-09-28",
+    "scope": "企业层公开材料与法定规则；不含具体团队、录用通知与个人材料"
+  },
+  "privacy_review": {
+    "completed": true,
+    "notes": "仅使用公开企业信息、公开法律文本和用户给出的公司名/岗位意向；未接触个人材料、联系方式或私人姓名。",
+    "allowed_pii": []
+  },
+  "identity": {
+    "status": "partial",
+    "headline": "品牌与北京运营主体可以识别，原「北京字节跳动科技有限公司」已于 2022 年更名；本次签约、发薪和社保主体仍未知。",
+    "note": "品牌识别不等于合同甲方确认；后端岗位的实际签约主体以录用通知和劳动合同抬头为准。",
+    "actors": [
+      {"label": "品牌", "value": "字节跳动 / 抖音集团", "status": "verified", "evidence_ids": ["E1", "E3"]},
+      {"label": "集团顶层", "value": "ByteDance Ltd.（开曼注册）；抖音集团（香港）有限公司", "status": "signal", "evidence_ids": ["E3", "E5"]},
+      {"label": "北京运营主体", "value": "北京抖音信息服务有限公司（原北京字节跳动科技有限公司，2022 年更名）", "status": "verified", "evidence_ids": ["E3"]},
+      {"label": "本次合同甲方", "value": "还不知道，等录用通知抬头", "status": "unknown", "evidence_ids": []},
+      {"label": "发薪/个税主体", "value": "还不知道", "status": "unknown", "evidence_ids": []},
+      {"label": "社保/公积金主体", "value": "还不知道", "status": "unknown", "evidence_ids": []}
+    ]
+  },
+  "decision": {
+    "state": "核实后再接受",
+    "basis_ids": [],
+    "boundary_trigger": "",
+    "remaining_gaps_material": true,
+    "headline": "品牌和集团主体能对上号；但你的合同甲方、团队真实工时和年终奖公式都还没有答案。",
+    "reason": "目前只能确认公司主体、官方招聘仍在进行，以及试用期的法定上限。签约主体、实际加班和奖金兑现都要看录用通知与招聘人员的书面材料，公开信息替代不了。",
+    "next_move": "请补充具体职位说明、录用通知和招聘人员聊天记录，先书面确认合同甲方全称和试用期录用条件。"
+  },
+  "verified": [
+    {"title": "官网和招聘站可以正常访问", "detail": "bytedance.com 与官方招聘站 jobs.bytedance.com 均可访问，官网页脚备案为京ICP备12025439号；招聘站岗位列表需浏览器渲染，静态访问只能读到站点说明。", "evidence_ids": ["E1", "E2"]},
+    {"title": "北京主体 2022 年已更名", "detail": "「北京字节跳动科技有限公司」更名为「北京抖音信息服务有限公司」，集团商业名称变更为抖音集团；维基条目与多家媒体摘要口径一致。工商登记原文本次未直接读取。", "evidence_ids": ["E3"]},
+    {"title": "试用期有法定上限（规则，非公司做法）", "detail": "《劳动合同法》第十九条：三年以上固定期限和无固定期限劳动合同试用期不得超过六个月；第二十条：试用期工资不得低于约定工资的 80% 且不低于当地最低工资。这只约束合法性边界，不证明该公司实际怎么约定。", "evidence_ids": ["E4"]}
+  ],
+  "signals": [
+    {"title": "2021 年 8 月起取消大小周", "detail": "多家媒体摘要一致：2021-07-09 全员邮件宣布，8 月 1 日生效，加班改走系统申请。原文未打开，且五年前的制度不等于目标团队当下节奏。", "evidence_ids": ["E6"]},
+    {"title": "取消大小周后，有员工反映收入下降", "detail": "报道摘要有员工反映首个发薪月收入减少上万元、媒体测算约 17% 的说法，源于加班费原为固定组成部分。这是历史报道中的说法，尚未核对报道原文和本人团队。", "evidence_ids": ["E6"]},
+    {"title": "网上流传的年终奖说法：0-6 个月、次年 3 月发放", "detail": "这些说法来自匿名社区与自媒体汇总，另有月薪按 70% 基本 + 30% 绩效拆分的说法。无官方制度原文，不能当作本次录用条件。", "evidence_ids": ["E7"]},
+    {"title": "网上有人称试用期为 6 个月", "detail": "社区里有试用期 6 个月的说法，与法定上限吻合，但录用条件、考核人与不通过标准完全没有材料。", "evidence_ids": ["E7", "E4"]}
+  ],
+  "conflicts": [
+    {"title": "取消大小周是减负，还是变相降薪？", "detail": "同一件事有两种相反解读：公司称这是取消强制加班制度，部分员工则认为固定收入下降。两种说法都针对 2021 年的制度变化，不能回答你要去的团队现在几点下班。", "evidence_ids": ["E6"]}
+  ],
+  "unknowns": [
+    {"title": "本次签约、发薪和社保主体", "impact": "集团内主体众多且 2022 年批量更名，甲方写谁直接影响社保地、工龄与争议对象。", "next_check": "向招聘人员索取合同甲方全称，并书面确认发薪、社保、公积金和个税主体。"},
+    {"title": "目标团队的真实工时", "impact": "公司级制度与历史报道无法替代具体团队当下的上线节奏与周末频率。", "next_check": "面试终面时追问近一个月晚 9 点后与周末工作频率，并找同团队员工交叉验证。"},
+    {"title": "本次岗位的年终奖公式", "impact": "没有基数、系数、发放条件和入离职折算，就无法把「15 薪」计入可预期总收入。", "next_check": "要求把奖金结构写入录用通知，或提供适用制度原文。"},
+    {"title": "试用期录用条件与考核标准", "impact": "标准若在入职后才定或可随意变更，试用期风险无法管理。", "next_check": "接受前拿到试用期录用条件/考核表，明确指标、权重、考核人与反馈周期。"}
+  ],
+  "concerns": [
+    {"title": "加班到底怎么样，大小周真没有了吗？", "status": "signal", "known": "媒体摘要显示 2021-08 起取消大小周、加班需系统申请；这属于历史制度变化。", "unknown": "你要去的北京后端团队当下的实际下班时间、上线周节奏和周末频率。", "impact": "直接决定可持续性；五年前的公司级制度对具体团队没有代表性。", "next_check": "终面追问近一个月工时分布，找同团队员工独立核实。", "evidence_ids": ["E6"]},
+    {"title": "年终奖（传闻 15 薪）到底怎么发？", "status": "signal", "known": "匿名口径为 0-6 个月、次年 3 月发放、月薪 70/30 拆分。", "unknown": "本次奖金是保底还是目标值，基数、系数、达成率和入离职折算也未知。", "impact": "口头流传的 15 薪不能当作可预期总收入。", "next_check": "把奖金公式与异常情形写入录用通知，或要到制度原文。", "evidence_ids": ["E7"]},
+    {"title": "试用期多长、怎么考核？", "status": "signal", "known": "法定上限：三年以上合同试用期最多 6 个月；社区流传该公司用满 6 个月。", "unknown": "本次合同期限、实际试用期时长、录用条件、指标与不通过标准。", "impact": "试用期长短本身合法，真正的问题是标准是否事先写明。", "next_check": "索要试用期录用条件/考核表，确认反馈周期。", "evidence_ids": ["E4", "E7"]},
+    {"title": "我到底和哪家公司签约？", "status": "signal", "known": "北京运营主体为北京抖音信息服务有限公司（原北京字节跳动科技有限公司）；集团主体 2022 年批量更名。", "unknown": "你的合同甲方、发薪、社保、公积金与个税主体。", "impact": "甲方是哪家子公司影响社保地、工龄归属与劳动争议对象。", "next_check": "让招聘人员书面列出五个主体字段，再与录用通知抬头逐字比对。", "evidence_ids": ["E3", "E5"]}
+  ],
+  "employee_experience": {
+    "coverage": "none",
+    "scope": "北京 · 后端研发（具体团队未提供）",
+    "evidence_ids": [],
+    "summary": "未取得可核对的目标团队在职或离职员工材料，只找到匿名社区里的薪酬和工时说法。",
+    "can_say": "官方招聘仍在进行、法律规定的边界，以及社区里流传过哪些说法。",
+    "cannot_say": "不能推断目标团队工作强度或奖金兑现，也不能因「没搜到差评」说体验好。",
+    "next_steps": [
+      "用脱敏后的职位说明和录用通知核对主体与承诺条款。",
+      "由你合法取得并允许分析的员工评价原文/截图，再纳入分析。",
+      "如果这份录用很重要，可自愿联系同城市、同职能员工，询问具体工作节奏和流程。",
+      "公开搜索设上限，不做账号池、反爬绕过或长期爬虫。"
+    ]
+  },
+  "checklist": [
+    {"stage": "进入最终沟通前", "item": "锁定团队真实节奏", "ask": "这个团队过去一个月晚 9 点后和周末的工作频率大概是多少？上线周通常怎么安排？", "evidence_to_get": "招聘人员或面试官的书面回复；最好有同团队员工的独立说法。", "warning": "只回答「弹性工作」「看项目需要」，拒绝给任何具体范围。"},
+    {"stage": "进入最终沟通前", "item": "要到试用期规则", "ask": "试用期多长？录用条件和考核表能在我接受前提供吗？由谁评估、多久反馈一次？", "evidence_to_get": "试用期录用条件或考核表。", "warning": "标准「入职后再定」，或只用「文化匹配」这类无法核验的说法。"},
+    {"stage": "拿到录用通知后", "item": "确认签约与缴税主体", "ask": "劳动合同甲方全称是哪家公司？发薪、社保、公积金和个税申报主体分别是谁？", "evidence_to_get": "录用通知抬头、合同甲方全称与主体关系的书面说明。", "warning": "只说「都是字节体系」，拒绝写出全称或说明责任承担。"},
+    {"stage": "拿到录用通知后", "item": "把年终奖拆开写清", "ask": "录用通知里的年终奖是保底还是目标奖金？基数、系数、发放月份和入离职折算分别怎么算？", "evidence_to_get": "录用通知条款或适用的奖金制度原文。", "warning": "口头承诺「一般都有三个月」，拒绝解释计算与发放条件。"}
+  ],
+  "materials": [
+    {"name": "公司名「字节跳动」与城市", "status": "provided", "use": "确认品牌对应哪些公司的起点"},
+    {"name": "岗位意向「后端开发」", "status": "provided", "use": "确定岗位范围；尚无具体职位说明"},
+    {"name": "具体职位说明原文", "status": "missing", "use": "锁定业务线、团队与任职要求"},
+    {"name": "录用通知与薪酬附件", "status": "missing", "use": "核对签约主体、固定与变动薪酬"},
+    {"name": "招聘人员沟通记录", "status": "missing", "use": "对齐口头承诺与书面条款"},
+    {"name": "员工评价/访谈", "status": "missing", "use": "补目标团队工时与兑现体验"}
+  ],
+  "sources": [
+    {"id": "E1", "title": "字节跳动官网 bytedance.com", "url": "https://www.bytedance.com/", "access_status": "accessed", "evidence_kind": "corporate_identity", "source_type": "企业官网", "subject": "品牌与集团", "event_date": "现时页面（版权标注至 2024）", "retrieved_at": "2026-09-28", "supports": "官方渠道存在、备案号与联系邮箱", "limits": "页脚未展示主体全称，不证明劳动合同甲方", "status": "verified"},
+    {"id": "E2", "title": "字节跳动官方招聘站 jobs.bytedance.com", "url": "https://jobs.bytedance.com/", "access_status": "accessed", "evidence_kind": "corporate_identity", "source_type": "企业官方招聘站", "subject": "企业群", "event_date": "现时页面", "retrieved_at": "2026-09-28", "supports": "官方社招/校招渠道仍在运营（站点标题与描述）", "limits": "岗位列表需浏览器渲染，本次未逐岗核对后端职位说明", "status": "verified"},
+    {"id": "E3", "title": "维基百科「字节跳动」条目", "url": "https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8", "access_status": "accessed", "evidence_kind": "media", "source_type": "百科条目（含引注）", "subject": "集团与北京主体", "event_date": "条目现时版本", "retrieved_at": "2026-09-28", "supports": "北京字节跳动科技有限公司 2022 年更名、开曼注册 ByteDance Ltd.、主要人物", "limits": "用户可编辑的三级来源；工商登记现状未直接读取", "status": "verified"},
+    {"id": "E4", "title": "《中华人民共和国劳动合同法》第十九、二十条（维基文库收录文本）", "url": "https://zh.wikisource.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E6%B3%95", "access_status": "accessed", "evidence_kind": "legal", "source_type": "法律文本", "subject": "通用法定规则", "event_date": "现行文本", "retrieved_at": "2026-09-28", "supports": "试用期时长上限与试用期工资下限的法定边界", "limits": "只定义合法性边界，不证明该公司实际约定", "status": "verified"},
+    {"id": "E5", "title": "2022 年集团更名报道汇总（澎湃/界面/21 世纪等）", "url": "", "access_status": "blocked", "evidence_kind": "corporate_identity", "locator": "cases/bytedance-backend-bj/03-检索日志.md #5 #6", "source_type": "多家媒体搜索摘要", "subject": "集团与北京主体", "event_date": "2022-05", "retrieved_at": "2026-09-28", "supports": "更名链与时间点多家口径一致（香港主体 2022-05-06 生效）", "limits": "仅搜索摘要，报道原文未打开；未读工商登记", "status": "signal"},
+    {"id": "E6", "title": "取消大小周相关报道汇总（36kr/新浪/杭州网等）", "url": "", "access_status": "blocked", "evidence_kind": "operating", "locator": "cases/bytedance-backend-bj/03-检索日志.md #2", "source_type": "多家媒体搜索摘要", "subject": "企业群（历史制度）", "event_date": "2021-07/08", "retrieved_at": "2026-09-28", "supports": "2021-08-01 取消大小周、加班需系统申请；取消后收入下降的报道口径", "limits": "原文未打开；五年前事件，不代表目标团队现状", "status": "signal"},
+    {"id": "E7", "title": "薪酬与试用期的网上说法（知乎/牛客等匿名内容）", "url": "", "access_status": "blocked", "evidence_kind": "employee_experience", "locator": "cases/bytedance-backend-bj/03-检索日志.md #7", "source_type": "匿名社区摘要", "subject": "不明团队与年份", "event_date": "未知", "retrieved_at": "2026-09-28", "supports": "年终奖 0-6 个月、次年 3 月发放、月薪 70/30 拆分、试用期 6 个月的流传说法", "limits": "匿名、无时间与主体定位，不构成任何一方的证明", "status": "signal"}
+  ],
+  "coverage_gaps": [
+    "工商登记原文未读取（公示系统与企查查需登录/反爬），主体更名以维基条目加多家媒体摘要交叉印证。",
+    "目标团队员工体验无材料；不把搜索不到负面解读为无负面。",
+    "大小周取消与薪酬调整的报道原文未打开，相关条目保持线索级。",
+    "未执行裁判文书与劳动争议检索，渠道覆盖不完整。"
+  ]
+}

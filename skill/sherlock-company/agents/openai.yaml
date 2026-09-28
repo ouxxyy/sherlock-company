@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sherlock Company"
+  short_description: "核实公司与录用条件的证据、未知项和接受前清单"
+  default_prompt: "使用 $sherlock-company 调查这家公司和岗位，分开已证实、有线索和仍未知的事，并给我一份接受录用前的核实清单。"

@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "company": "4399（四三九九）",
+    "position": "未提供具体岗位",
+    "city": "厦门总部为主；广州为关联研发主体",
+    "investigation_date": "2026-09-28",
+    "scope": "企业层公开材料；不覆盖具体岗位、团队和 Offer"
+  },
+  "privacy_review": {
+    "completed": true,
+    "notes": "本样例只使用公开企业信息，不含用户个人材料、联系方式、签名或私人姓名。",
+    "allowed_pii": []
+  },
+  "identity": {
+    "status": "partial",
+    "headline": "品牌、总部与广州关联研发主体已识别；本次机会的签约、发薪和社保主体未知。",
+    "note": "企业群的静态关系不能代替本次 Offer 的劳动关系。",
+    "actors": [
+      {"label": "品牌", "value": "4399", "status": "verified", "evidence_ids": ["E1"]},
+      {"label": "总部/品牌主体", "value": "四三九九网络股份有限公司", "status": "verified", "evidence_ids": ["E1", "E4"]},
+      {"label": "关联研发主体", "value": "广州四三九九信息科技有限公司", "status": "verified", "evidence_ids": ["E4", "E17"]},
+      {"label": "本次合同甲方", "value": "未提供 Offer，还不知道", "status": "unknown", "evidence_ids": []},
+      {"label": "发薪/个税主体", "value": "还不知道", "status": "unknown", "evidence_ids": []},
+      {"label": "社保/公积金主体", "value": "还不知道", "status": "unknown", "evidence_ids": []}
+    ]
+  },
+  "decision": {
+    "state": "核实后再接受",
+    "basis_ids": [],
+    "boundary_trigger": "",
+    "remaining_gaps_material": true,
+    "headline": "主体和现时经营活动可以确认；你真正关心的加班、奖金和签约安排还没有可靠答案。",
+    "reason": "现有材料主要能证明公司是谁、它仍在招聘和经营，不能证明你要去的团队如何工作。这不是“公司一定有问题”，而是决定成败的信息还在缺失。",
+    "next_move": "补充城市、岗位、JD 和 Offer/HR 沟通材料，再按下方清单对目标团队定点核实。"
+  },
+  "verified": [
+    {"title": "4399 品牌对应的总部主体可以锁定", "detail": "官网、招聘站和 2016 年招股说明书指向四三九九网络股份有限公司；广州四三九九为关联研发发行主体。", "evidence_ids": ["E1", "E2", "E4"]},
+    {"title": "招聘和经营活动仍在继续", "detail": "官方招聘页仍有校招与社招；2025 年中国互联网综合实力百强排名第 30，连续十三年入选的报道原文可复核。", "evidence_ids": ["E2", "E5b"]},
+    {"title": "广州主体有长期资本投入信号", "detail": "2024 年 11 月广州四三九九竞得天河金融城地块拟建未来总部。这只能作为主体连续性参照，不能推导员工福利。", "evidence_ids": ["E17"]}
+  ],
+  "signals": [
+    {"title": "2014 年广州公司裁员传闻曾被媒体报道", "detail": "原始报道本身使用“传”的口径，来自单一匿名信源，且无后续权威确认。只能证明传闻存在，不能证明事件和规模。", "evidence_ids": ["E7"]}
+  ],
+  "conflicts": [
+    {"title": "官方福利表述与零散强度线索并存", "detail": "招聘口径提到双休、包餐等，但这些主要来自官方或带内推码的同源传播；匿名汇编里又出现项目组差异说法。两边都不足以代表目标团队。", "evidence_ids": ["E3", "E10", "E12", "E16"]}
+  ],
+  "unknowns": [
+    {"title": "目标团队的真实工作时间", "impact": "加班与否取决于城市、业务线、上线周期和管理者，公司级口径无法替代。", "next_check": "获取目标项目组近四周的下班和周末工作频率，最好有同团队员工的独立说法。"},
+    {"title": "本次机会的签约、发薪和社保主体", "impact": "厦门母公司与广州子公司并存，主体不一致会影响工作地、社保和责任承担。", "next_check": "向 HR 索取劳动合同甲方全称，并书面确认发薪、社保、公积金和个税主体。"},
+    {"title": "奖金、试用期和岗位边界", "impact": "没有具体 JD 与 Offer，就无法判断变动薪酬的可实现性、录用条件或业务调整风险。", "next_check": "要到岗位版 JD、Offer 和试用期考核表，逐条对齐 HR 的口头承诺。"}
+  ],
+  "concerns": [
+    {"title": "加班到底有多重？", "status": "conflict", "known": "官方招聘表述有双休，零散匿名线索又指向项目组之间差异大。", "unknown": "你要去的城市、业务线和直属团队近期实际节奏。", "impact": "直接影响可持续性；公司级平均对具体团队没有足够代表性。", "next_check": "追问近四周晚 9 点后和周末工作的具体频率，并找相关员工交叉验证。", "evidence_ids": ["E3", "E10", "E12", "E16"]},
+    {"title": "奖金是承诺，还是可以拿到？", "status": "unknown", "known": "官方招聘材料有年底双薪等表述。", "unknown": "目标奖金的基数、系数、发放月份、达成率和入离职折算。", "impact": "口头口径不能作为可预期总收入。", "next_check": "把奖金公式、发放条件和异常情形写入 Offer 或取得适用制度。", "evidence_ids": ["E3", "E10"]},
+    {"title": "试用期会不会被模糊淘汰？", "status": "unknown", "known": "当前调查未取得目标岗位的试用期材料。", "unknown": "试用期时长、录用条件、指标权重、考核人和过往不通过情况。", "impact": "如果标准在入职后才定或可随意变更，风险难以管理。", "next_check": "在接受前要到录用条件和考核表，确认反馈周期与不通过标准。", "evidence_ids": []},
+    {"title": "我到底跟哪家公司签？", "status": "signal", "known": "厦门总部与广州全资子公司的静态关系有公开材料支持。", "unknown": "你的合同甲方、发薪、社保、公积金和个税申报主体。", "impact": "主体不一致可能影响工作地、社保地和争议责任。", "next_check": "让 HR 书面列出五个主体字段；不一致时说明关系与责任承担。", "evidence_ids": ["E1", "E2", "E4"]}
+  ],
+  "employee_experience": {
+    "coverage": "none",
+    "scope": "目标城市、岗位与团队（用户尚未提供）",
+    "evidence_ids": [],
+    "summary": "未取得可核对的目标团队在职/离职体验材料。",
+    "can_say": "现在只能说官方如何承诺、网络上有哪些线索、哪些渠道没有覆盖。",
+    "cannot_say": "不能把“没搜到评价”写成“员工体验好”或“公司有问题”，也不能给目标团队打分。",
+    "next_steps": [
+      "优先用脱敏后的 JD、Offer 和 HR 聊天核对主体与承诺。",
+      "补充用户合法访问、允许用于分析的评价截图或原文。",
+      "对重要 Offer，由用户自愿联系同城市、同职能或同团队员工，用行为问题核对。",
+      "继续公开搜索时设上限；不做账号池、反爬绕过或长期评价平台爬虫。"
+    ]
+  },
+  "checklist": [
+    {"stage": "进入最终沟通前", "item": "锁定具体团队和工作节奏", "ask": "这个岗位所在团队过去四周通常几点结束工作？晚 9 点后和周末处理工作的频率大约多少？", "evidence_to_get": "团队、业务线、汇报人和节奏的书面回复；可能的话取得相关员工独立说法。", "warning": "只回答“弹性”“看业务需要”，不提供任何具体范围。"},
+    {"stage": "进入最终沟通前", "item": "要到试用期评价规则", "ask": "请提供试用期录用条件、指标权重、考核人、反馈频率和不通过标准。", "evidence_to_get": "试用期录用条件或考核表。", "warning": "标准空白、可随时变更，或只用“文化匹配”决定。"},
+    {"stage": "拿到 Offer 后", "item": "确认签约与缴税主体", "ask": "劳动合同甲方、发薪、社保、公积金和个税申报分别是哪家公司？", "evidence_to_get": "Offer 抬头、合同甲方全称与主体关系书面说明。", "warning": "多个主体不一致，且 HR 不愿说明关系和责任。"},
+    {"stage": "拿到 Offer 后", "item": "把变动薪酬拆开写清", "ask": "Offer 中的奖金是固定、保底还是目标奖金？基数、系数、发放月份、入离职折算分别怎么算？", "evidence_to_get": "Offer 条款或适用的奖金制度。", "warning": "只有口头承诺，拒绝解释计算和发放条件。"}
+  ],
+  "materials": [
+    {"name": "公司名“4399”", "status": "provided", "use": "用于品牌与法律主体消歧"},
+    {"name": "具体 JD 与城市", "status": "missing", "use": "锁定职能、团队、工作地和招聘主体"},
+    {"name": "Offer 与薪酬附件", "status": "missing", "use": "核对签约主体、固定与变动薪酬"},
+    {"name": "HR 沟通记录", "status": "missing", "use": "对齐口头承诺与书面条款"},
+    {"name": "相关员工评价/访谈", "status": "missing", "use": "补目标团队的工作强度和兑现体验"}
+  ],
+  "sources": [
+    {"id": "E1", "title": "4399.com 官网页脚", "url": "https://www.4399.com/", "access_status": "accessed", "evidence_kind": "corporate_identity", "source_type": "企业官网", "subject": "厦门总部", "event_date": "现时页面", "retrieved_at": "2026-09-26", "supports": "品牌归属主体和公示资质", "limits": "企业自述，不证明员工体验", "status": "verified"},
+    {"id": "E2", "title": "4399 官方招聘站联系页与职位列表", "url": "https://my.4399.com/joinus/contact.html", "access_status": "accessed", "evidence_kind": "corporate_identity", "source_type": "企业官网", "subject": "企业群", "event_date": "2026", "retrieved_at": "2026-09-26", "supports": "主体关系、办公地址和招聘活动", "limits": "不证明劳动合同甲方或福利兑现", "status": "verified"},
+    {"id": "E3", "title": "4399 校招官网", "url": "https://web.4399.com/campus/", "access_status": "accessed", "evidence_kind": "company_promise", "source_type": "企业官网", "subject": "企业群", "event_date": "2027 届", "retrieved_at": "2026-09-26", "supports": "官方公开的福利与招聘承诺", "limits": "宣传口径，不证明兑现", "status": "signal"},
+    {"id": "E4", "title": "四三九九网络股份有限公司招股说明书申报稿", "url": "", "access_status": "local", "evidence_kind": "corporate_identity", "locator": "cases/4399/attachments/四三九九网络股份有限公司-招股说明书申报稿-2016-06-06-证监会原文.pdf", "source_type": "证监会原文本地存档", "subject": "厦门总部及子公司", "event_date": "2016-06-06", "retrieved_at": "2026-09-26", "supports": "主体沿革、股权和广州全资子公司关系", "limits": "不支持 2016 年之后现状", "status": "verified"},
+    {"id": "E5b", "title": "厦门日报《5家厦企入选中国互联网综合实力百强》", "url": "https://www.investxiamen.org.cn/detail/12204.html", "access_status": "accessed", "evidence_kind": "operating", "source_type": "政府站转载的媒体原稿", "subject": "厦门总部", "event_date": "2026-01-04", "retrieved_at": "2026-09-26", "supports": "2025 百强第 30 位、连续十三年入选", "limits": "行业榜单不证明雇主体验", "status": "verified"},
+    {"id": "E7", "title": "2014 年广州公司裁员传闻报道", "url": "http://games.sina.com.cn/w/n/2014-04-28/1453780457.shtml", "access_status": "accessed", "evidence_kind": "media", "source_type": "媒体报道", "subject": "广州主体（历史）", "event_date": "2014-04-28", "retrieved_at": "2026-09-26", "supports": "该传闻曾被报道", "limits": "单一匿名信源且公司当时未确认，不证明事件与规模", "status": "signal"},
+    {"id": "E10", "title": "牛客内推帖福利口径", "url": "", "access_status": "blocked", "evidence_kind": "company_promise", "locator": "cases/4399/03-检索日志.md 中的牛客摘要记录", "source_type": "带内推码的搜索摘要", "subject": "企业群", "event_date": "2026/2027 届招聘", "retrieved_at": "2026-09-26", "supports": "福利口径在内推帖中被转述", "limits": "原文直链未取得，且有内推利益关系；不构成独立印证", "status": "signal"},
+    {"id": "E12", "title": "Scribd 汇编文档涉 4399 段落", "url": "", "access_status": "login_required", "evidence_kind": "employee_experience", "locator": "cases/4399/04-证据账本.md 的 E12", "source_type": "匿名汇编摘要", "subject": "不明项目组", "event_date": "未知", "retrieved_at": "2026-09-26", "supports": "汇编文本同时出现正常上下班和其它组惨的说法", "limits": "无作者、无时间且自认不具代表性", "status": "signal"},
+    {"id": "E16", "title": "牛客工作强度线索", "url": "", "access_status": "blocked", "evidence_kind": "employee_experience", "locator": "cases/4399/03-检索日志.md #37", "source_type": "搜索摘要", "subject": "厦门（依帖名）", "event_date": "未知", "retrieved_at": "2026-09-26", "supports": "社区对下班时间的显性关注", "limits": "日期和发帖人身份不明，不证明公司工时制度", "status": "signal"},
+    {"id": "E17", "title": "广州四三九九竞得天河金融城东区地块", "url": "http://www.thnet.gov.cn/zjth/tzth/tzdt/content/post_9970303.html", "access_status": "accessed", "evidence_kind": "operating", "source_type": "广州市天河区政府网", "subject": "广州主体", "event_date": "2024-11-11", "retrieved_at": "2026-09-26", "supports": "竞得地块、成交金额与拟建未来总部", "limits": "资本开支不证明雇主体验或短期福利", "status": "verified"}
+  ],
+  "coverage_gaps": [
+    "未取得可核对的目标团队员工体验原文；不将这个缺口解读为无负面。",
+    "裁判文书网与部分职场平台受访问限制；劳动争议与现时工体验覆盖不完整。",
+    "用户未提供岗位、城市、Offer 或个人偏好；本页不生成个人机会推荐分数。"
+  ]
+}

@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Sherlock Company 4399 企业调查互动报告，区分已证实信息、调查线索、冲突说法与关键未知。">
+  <title>Sherlock Company | 4399 职场证据盲盒</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --ink:#182132; --ink-soft:#364155; --muted:#667286;
+      --paper:#f2f5f9; --surface:#fff; --surface-soft:#f7f9fc;
+      --line:#dbe2ec; --line-strong:#c9d2df;
+      --accent:#d9573b; --accent-dark:#a93e29; --accent-soft:#fff0eb;
+      --verified:#167766; --verified-soft:#eaf7f3;
+      --signal:#90601b; --signal-soft:#fff4d8;
+      --conflict:#a74647; --conflict-soft:#fff0f0;
+      --unknown:#667286; --unknown-soft:#eef1f5;
+      --shadow:0 24px 64px rgba(42,55,78,.11);
+      --shadow-soft:0 12px 34px rgba(42,55,78,.07);
+      --r-lg:28px; --r-md:16px; --r-sm:10px;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0; color:var(--ink);
+      font-family:"Avenir Next","PingFang SC","Microsoft YaHei",sans-serif;
+      line-height:1.65; background-color:var(--paper);
+      background-image:radial-gradient(#d9e0ea 1px,transparent 1px);
+      background-size:22px 22px;
+    }
+    button,a,input { font:inherit; }
+    button { color:inherit; }
+    a { color:inherit; }
+    img { max-width:100%; }
+    h1,h2,h3,p,figure { margin-top:0; }
+    .skip-link {
+      position:fixed; left:16px; top:12px; z-index:20;
+      transform:translateY(-150%); padding:9px 13px; border-radius:var(--r-sm);
+      background:var(--ink); color:#fff; text-decoration:none;
+    }
+    .skip-link:focus { transform:translateY(0); }
+
+    .topbar {
+      position:sticky; top:0; z-index:10;
+      border-bottom:1px solid rgba(201,210,223,.88);
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    }
+    .topbar-inner {
+      width:min(1240px,calc(100% - 28px)); min-height:68px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between; gap:24px;
+    }
+    .brand { display:flex; align-items:center; gap:11px; min-width:260px; text-decoration:none; }
+    .brand-mark {
+      width:38px; height:38px; display:grid; place-items:center; border-radius:12px;
+      background:var(--accent); color:#fff; font-weight:900; letter-spacing:-.05em;
+      box-shadow:0 8px 20px rgba(217,87,59,.24);
+    }
+    .brand-copy strong,.brand-copy span { display:block; }
+    .brand-copy strong { font-size:13px; line-height:1.2; }
+    .brand-copy span { margin-top:3px; color:var(--muted); font-size:11px; }
+    .version-nav {
+      display:flex; align-items:center; gap:5px; white-space:nowrap;
+      overflow-x:auto; scrollbar-width:none;
+    }
+    .version-nav::-webkit-scrollbar { display:none; }
+    .version-nav a {
+      padding:7px 10px; border-radius:var(--r-sm); color:#566175;
+      font-size:12px; font-weight:700; text-decoration:none;
+      transition:background 180ms ease,color 180ms ease,transform 180ms ease;
+    }
+    .version-nav a:hover { background:#f1f4f8; color:var(--ink); }
+    .version-nav a:active { transform:translateY(1px); }
+    .version-nav a[aria-current="page"] { background:var(--accent); color:#fff; }
+
+    .page { width:min(1180px,calc(100% - 28px)); margin:26px auto 76px; }
+    .hero-shell {
+      padding:4px; border-radius:34px;
+      background:linear-gradient(120deg,#c7a16f 0%,var(--accent) 48%,#59677e 100%);
+      box-shadow:var(--shadow);
+    }
+    .hero {
+      min-height:520px; display:grid;
+      grid-template-columns:minmax(280px,.78fr) minmax(0,1.55fr);
+      align-items:center; gap:clamp(34px,5vw,70px);
+      padding:clamp(28px,4.3vw,54px); border-radius:30px; overflow:hidden;
+      background:
+        radial-gradient(circle at 88% 8%,rgba(217,87,59,.1),transparent 30%),
+        radial-gradient(circle at 8% 92%,rgba(74,103,115,.1),transparent 34%),
+        rgba(255,255,255,.98);
+    }
+    .toy-frame {
+      margin:0; padding:12px; border-radius:24px;
+      background:linear-gradient(145deg,#eff9f6,#fff3e8);
+      box-shadow:0 22px 55px rgba(46,69,83,.15); transform:rotate(-1.4deg);
+    }
+    .toy-frame img {
+      width:100%; height:auto; aspect-ratio:1; display:block; object-fit:cover;
+      border:5px solid #fff; border-radius:17px;
+    }
+    .toy-frame figcaption {
+      display:flex; justify-content:space-between; gap:12px; margin:10px 4px 1px;
+      color:#536074; font-size:11px; font-weight:750;
+    }
+    .hero-label {
+      display:inline-block; margin-bottom:16px; color:var(--accent-dark);
+      font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase;
+    }
+    h1,.verdict h2 {
+      font-family:"Iowan Old Style","Songti SC","STSong",serif;
+      letter-spacing:-.045em;
+    }
+    h1 {
+      max-width:760px; margin-bottom:17px;
+      font-size:clamp(38px,5.4vw,64px); line-height:1.05;
+    }
+    .hero-lede {
+      max-width:620px; margin-bottom:26px; color:#4d596c;
+      font-size:clamp(16px,1.7vw,19px);
+    }
+    .hero-meta {
+      display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+      border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    }
+    .meta-item { min-width:0; padding:13px 14px 13px 0; }
+    .meta-item + .meta-item { padding-left:14px; border-left:1px solid var(--line); }
+    .meta-item span,.meta-item strong { display:block; }
+    .meta-item span { color:#7a8495; font-size:10px; font-weight:800; }
+    .meta-item strong { margin-top:4px; font-size:12px; overflow-wrap:anywhere; }
+
+    .verdict {
+      margin-top:22px; padding:clamp(24px,4vw,38px); display:grid;
+      grid-template-columns:minmax(0,1.65fr) minmax(240px,.55fr);
+      gap:clamp(24px,4vw,48px); align-items:center;
+      border:1px solid var(--line); border-radius:var(--r-lg);
+      background:var(--surface); box-shadow:var(--shadow-soft);
+    }
+    .verdict-kicker { margin-bottom:8px; color:var(--accent); font-size:13px; font-weight:900; }
+    .verdict h2 {
+      max-width:780px; margin-bottom:14px;
+      font-size:clamp(30px,4vw,46px); line-height:1.14;
+    }
+    .verdict p { max-width:760px; margin-bottom:0; color:#515e72; }
+    .next-action {
+      margin-top:19px; padding:14px 16px; border-left:4px solid var(--accent);
+      border-radius:4px 14px 14px 4px; background:var(--accent-soft);
+      color:#5b3229; font-size:14px;
+    }
+    .score-panel {
+      padding:22px; border-radius:var(--r-md); background:#202a3c; color:#fff;
+      box-shadow:0 18px 40px rgba(32,42,60,.22);
+    }
+    .score-value { display:flex; align-items:baseline; gap:7px; font-variant-numeric:tabular-nums; }
+    .score-value strong { font:800 58px/1 "Iowan Old Style",serif; }
+    .score-value span { color:#d8deea; font-size:13px; }
+    .score-panel h3 { margin:13px 0 7px; font-size:16px; }
+    .score-panel p { margin:0; color:#c6cfdf; font-size:12px; }
+    .evidence-stats {
+      display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin:18px 0 0;
+      border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden;
+      background:rgba(255,255,255,.82);
+    }
+    .stat { min-width:0; padding:16px 18px; }
+    .stat + .stat { border-left:1px solid var(--line); }
+    .stat strong { display:block; font:800 28px/1.1 "Iowan Old Style",serif; }
+    .stat span { display:block; margin-top:5px; color:var(--muted); font-size:12px; }
+
+    .section { margin-top:54px; }
+    .section-heading { margin-bottom:21px; }
+    .section-heading h2,.checklist-head h2 {
+      margin-bottom:7px; font-size:clamp(27px,3vw,36px); letter-spacing:-.035em;
+    }
+    .section-heading p,.checklist-head p { max-width:660px; margin-bottom:0; color:var(--muted); }
+    .clue-grid {
+      display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:16px;
+    }
+    .clue-card {
+      grid-column:span 7; min-width:0; height:286px; padding:0; border:0;
+      border-radius:var(--r-md); background:transparent; text-align:left;
+      cursor:pointer; perspective:1200px;
+    }
+    .clue-card:nth-child(2),.clue-card:nth-child(3),.clue-card:nth-child(6) { grid-column:span 5; }
+    .clue-inner {
+      width:100%; height:100%; display:block; position:relative; transform-style:preserve-3d;
+      transition:transform 560ms cubic-bezier(.16,1,.3,1);
+    }
+    .clue-card[aria-pressed="true"] .clue-inner { transform:rotateY(180deg); }
+    .clue-face {
+      position:absolute; inset:0; display:flex; flex-direction:column;
+      justify-content:space-between; padding:24px; border:1px solid var(--line);
+      border-radius:var(--r-md); backface-visibility:hidden;
+      -webkit-backface-visibility:hidden; overflow:hidden;
+    }
+    .clue-front {
+      background:var(--surface); box-shadow:var(--shadow-soft);
+      transition:border-color 180ms ease,box-shadow 180ms ease,transform 180ms ease;
+    }
+    .clue-card:hover .clue-front {
+      border-color:#c2cbd8; box-shadow:0 18px 42px rgba(42,55,78,.12);
+      transform:translateY(-2px);
+    }
+    .clue-back {
+      transform:rotateY(180deg); border-color:#2a364a;
+      background:#202a3c; color:#fff; box-shadow:0 22px 50px rgba(32,42,60,.22);
+    }
+    .clue-top,.clue-foot {
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .clue-index {
+      color:#9aa5b6; font:800 24px/1 "Iowan Old Style",serif;
+      font-variant-numeric:tabular-nums;
+    }
+    .status {
+      display:inline-flex; align-items:center; min-height:28px; padding:5px 9px;
+      border-radius:8px; font-size:11px; font-weight:850;
+    }
+    .status.verified { color:var(--verified); background:var(--verified-soft); }
+    .status.signal { color:var(--signal); background:var(--signal-soft); }
+    .status.conflict { color:var(--conflict); background:var(--conflict-soft); }
+    .status.unknown { color:var(--unknown); background:var(--unknown-soft); }
+    .clue-face h3 { margin:18px 0 8px; font-size:clamp(19px,2vw,24px); line-height:1.25; }
+    .clue-face p { max-width:62ch; margin-bottom:0; color:#5d687b; font-size:13px; }
+    .clue-back p { color:#d3dae6; }
+    .clue-foot {
+      margin-top:20px; padding-top:12px; border-top:1px solid #edf0f4;
+      color:#7a8596; font-size:11px;
+    }
+    .clue-back .clue-foot { border-color:#354156; color:#c6cfdf; }
+    .flip-hint { color:var(--accent-dark); font-weight:850; }
+    .clue-back .flip-hint { color:#ffb7a6; }
+
+    .checklist-shell {
+      padding:clamp(24px,4vw,38px); border:1px solid var(--line);
+      border-radius:var(--r-lg); background:var(--surface); box-shadow:var(--shadow-soft);
+    }
+    .checklist-head {
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:28px; margin-bottom:25px;
+    }
+    .copy-button {
+      flex:0 0 auto; min-width:132px; padding:11px 16px;
+      border:1px solid var(--accent); border-radius:var(--r-sm);
+      background:var(--accent); color:#fff; font-size:13px; font-weight:850;
+      white-space:nowrap; cursor:pointer; box-shadow:0 10px 22px rgba(217,87,59,.22);
+      transition:background 180ms ease,transform 180ms ease,box-shadow 180ms ease;
+    }
+    .copy-button:hover { background:var(--accent-dark); box-shadow:0 14px 28px rgba(169,62,41,.24); }
+    .copy-button:active { transform:translateY(1px); }
+    .stage-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .stage-panel {
+      padding:22px; border-radius:var(--r-md);
+      background:var(--surface-soft); border:1px solid var(--line);
+    }
+    .stage-panel h3 { margin-bottom:4px; font-size:19px; }
+    .stage-panel > p { margin-bottom:10px; color:var(--muted); font-size:12px; }
+    .question {
+      display:grid; grid-template-columns:22px minmax(0,1fr); gap:12px;
+      padding:16px 0; border-bottom:1px solid var(--line); cursor:pointer;
+    }
+    .question:last-child { padding-bottom:2px; border-bottom:0; }
+    .question input { width:18px; height:18px; margin:4px 0 0; accent-color:var(--accent); }
+    .question strong { display:block; margin-bottom:5px; font-size:14px; }
+    .question-text { display:block; color:#566276; font-size:13px; }
+    .copy-status {
+      min-height:24px; margin:14px 0 0;
+      color:var(--verified); font-size:12px; font-weight:750;
+    }
+
+    .scope-band {
+      display:grid; grid-template-columns:minmax(0,.74fr) minmax(0,1.26fr);
+      gap:20px; margin-top:54px;
+    }
+    .scope-title {
+      padding:26px; border-radius:var(--r-md); background:#202a3c; color:#fff;
+    }
+    .scope-title h2 { margin-bottom:9px; font-size:28px; line-height:1.22; }
+    .scope-title p { margin:0; color:#c6cfdf; font-size:13px; }
+    .scope-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .scope-item {
+      padding:18px; border:1px solid var(--line); border-radius:var(--r-md);
+      background:rgba(255,255,255,.86);
+    }
+    .scope-item strong { display:block; margin-bottom:5px; font-size:14px; }
+    .scope-item p { margin:0; color:var(--muted); font-size:12px; }
+    footer {
+      margin-top:46px; padding-top:19px; border-top:1px solid var(--line-strong);
+      color:#758094; font-size:12px; text-align:center;
+    }
+    :focus-visible { outline:3px solid rgba(217,87,59,.34); outline-offset:3px; }
+    .js .reveal {
+      opacity:0; transform:translateY(18px);
+      transition:opacity 620ms cubic-bezier(.16,1,.3,1),transform 620ms cubic-bezier(.16,1,.3,1);
+    }
+    .js .reveal.is-visible { opacity:1; transform:translateY(0); }
+
+    @media (max-width:980px) {
+      .topbar-inner { align-items:flex-start; flex-direction:column; gap:6px; padding:10px 0; }
+      .version-nav { width:100%; }
+      .hero { grid-template-columns:280px minmax(0,1fr); gap:32px; min-height:0; }
+      .hero-meta { grid-template-columns:1fr; }
+      .meta-item + .meta-item { padding-left:0; border-left:0; border-top:1px solid var(--line); }
+      .verdict { grid-template-columns:1fr; }
+    }
+    @media (max-width:760px) {
+      .page { width:min(100% - 18px,1180px); margin-top:9px; }
+      .hero-shell { border-radius:27px; }
+      .hero { grid-template-columns:1fr; gap:22px; padding:20px; border-radius:23px; }
+      .hero-media { width:min(100%,250px); margin:0 auto; }
+      .toy-frame { transform:none; }
+      h1 { font-size:clamp(36px,11vw,52px); }
+      .hero-meta { grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .meta-item { padding:10px 8px 10px 0; }
+      .meta-item + .meta-item { padding-left:10px; border-top:0; border-left:1px solid var(--line); }
+      .evidence-stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .stat:nth-child(3) { border-left:0; border-top:1px solid var(--line); }
+      .stat:nth-child(4) { border-top:1px solid var(--line); }
+      .clue-card,.clue-card:nth-child(n) { grid-column:1/-1; height:310px; }
+      .checklist-head { display:block; }
+      .copy-button { width:100%; margin-top:16px; }
+      .stage-grid,.scope-band { grid-template-columns:1fr; }
+      .scope-list { grid-template-columns:1fr; }
+    }
+    @media (max-width:440px) {
+      .topbar-inner { width:min(100% - 18px,1240px); }
+      .brand { min-width:0; }
+      .brand-copy span { display:none; }
+      .version-nav a { padding:7px 9px; }
+      .verdict,.checklist-shell { padding:20px; }
+      .clue-card,.clue-card:nth-child(n) { height:350px; }
+      .clue-face { padding:20px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+      .js .reveal { opacity:1; transform:none; }
+    }
+    @media print {
+      body { background:#fff; }
+      .topbar,.copy-button,.flip-hint { display:none; }
+      .page { width:100%; margin:0; }
+      .hero-shell,.verdict,.clue-front,.checklist-shell { box-shadow:none; }
+      .clue-card,.clue-card:nth-child(n) { grid-column:span 6; height:auto; }
+      .clue-inner { height:auto; transform:none !important; }
+      .clue-face { position:relative; min-height:250px; }
+      .clue-back { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="返回方案总览">
+        <span class="brand-mark" aria-hidden="true">SH</span>
+        <span class="brand-copy"><strong>Sherlock Company</strong><span>证据型企业调查报告</span></span>
+      </a>
+      <nav class="version-nav" aria-label="设计版本">
+        <a href="version1-cyber-noir.html">版本 1 赛博暗夜</a>
+        <a href="version2-classic-dossier.html">版本 2 贝克街卷宗</a>
+        <a href="version3-pop-toy-lab.html" aria-current="page">版本 3 证据盲盒</a>
+        <a href="index.html">方案总览</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" id="main-content">
+    <div class="hero-shell reveal">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-media">
+          <figure class="toy-frame">
+            <img src="assets/sherlock_ip_pop.jpg" alt="戴猎鹿帽、手持放大镜的 Sherlock 侦探公仔与收藏包装盒" width="1024" height="1024">
+            <figcaption><span>证据侦探收藏款</span><span>Series 01</span></figcaption>
+          </figure>
+        </div>
+        <div class="hero-copy">
+          <span class="hero-label">Sherlock Company · Offer 前核实</span>
+          <h1 id="page-title">4399 职场真相，不靠开盲盒</h1>
+          <p class="hero-lede">公司主体可以确认，目标岗位仍缺关键信息。先看证据，再决定要不要继续。</p>
+          <div class="hero-meta" aria-label="调查范围">
+            <div class="meta-item"><span>对象</span><strong>4399 企业群</strong></div>
+            <div class="meta-item"><span>岗位</span><strong>未提供具体 JD</strong></div>
+            <div class="meta-item"><span>调查边界</span><strong>企业层公开材料</strong></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="verdict reveal" aria-labelledby="verdict-title">
+      <div>
+        <div class="verdict-kicker">小夏的当前结论</div>
+        <h2 id="verdict-title">可以继续聊，但不能只凭公司宣传接受 Offer。</h2>
+        <p>主体、招聘和持续经营活动有公开材料支撑；加班、奖金、试用期和最终签约主体仍缺目标团队证据。</p>
+        <div class="next-action"><strong>下一步：</strong>补充城市、岗位、JD 和 Offer，再把六个问题逐项问到书面答案。</div>
+      </div>
+      <aside class="score-panel" aria-label="企业层暂定评分">
+        <div class="score-value"><strong>3.5</strong><span>/ 5</span></div>
+        <h3>企业层暂定</h3>
+        <p>低置信度。它不是岗位推荐分，也不代表目标团队体验。</p>
+      </aside>
+    </section>
+
+    <div class="evidence-stats reveal" aria-label="证据覆盖统计">
+      <div class="stat"><strong>3</strong><span>条已证实</span></div>
+      <div class="stat"><strong>1</strong><span>条待追线索</span></div>
+      <div class="stat"><strong>1</strong><span>组冲突说法</span></div>
+      <div class="stat"><strong>3</strong><span>个重要未知</span></div>
+    </div>
+
+    <section class="section reveal" aria-labelledby="clues-title">
+      <div class="section-heading">
+        <h2 id="clues-title">六个证据盒，正面看线索，背面看边界</h2>
+        <p>点击任意证据盒翻面。翻面不是制造反转，而是提醒这条材料能证明什么，不能证明什么。</p>
+      </div>
+      <div class="clue-grid">
+        <button class="clue-card" type="button" aria-pressed="false" aria-label="翻转福利待遇证据盒" onclick="toggleClue(this)">
+          <span class="clue-inner">
+            <span class="clue-face clue-front"><span><span class="clue-top"><span class="clue-index">01</span><span class="status signal">官方承诺</span></span><h3>双休、包餐、双薪有公开口径</h3><p>官方校招页与带内推码的招聘信息提到包餐、下午茶和年底双薪。</p></span><span class="clue-foot"><span>证据 E3 / E10</span><span class="flip-hint">查看判断边界</span></span></span>
+            <span class="clue-face clue-back"><span><span class="clue-top"><span class="clue-index">01</span><span class="status signal">边界</span></span><h3>招聘口径不等于合同兑现</h3><p>两条材料都接近招聘传播链，缺少独立员工材料。应核对奖金公式、发放条件和适用团队。</p></span><span class="clue-foot"><span>下一步：写入 Offer</span><span class="flip-hint">返回线索</span></span></span>
+          </span>
+        </button>
+        <button class="clue-card" type="button" aria-pressed="false" aria-label="翻转经营活动证据盒" onclick="toggleClue(this)">
+          <span class="clue-inner">
+            <span class="clue-face clue-front"><span><span class="clue-top"><span class="clue-index">02</span><span class="status verified">已证实</span></span><h3>经营活动和长期投入仍在继续</h3><p>百强报道、在招职位和广州拿地信息可作为主体连续性的参照。</p></span><span class="clue-foot"><span>证据 E5b / E17</span><span class="flip-hint">查看判断边界</span></span></span>
+            <span class="clue-face clue-back"><span><span class="clue-top"><span class="clue-index">02</span><span class="status verified">边界</span></span><h3>企业稳定不等于岗位稳定</h3><p>未上市公司不按季度公开详细财务。拿地也不能推导团队预算、员工福利或岗位安全。</p></span><span class="clue-foot"><span>下一步：问清编制来源</span><span class="flip-hint">返回线索</span></span></span>
+          </span>
+        </button>
+        <button class="clue-card" type="button" aria-pressed="false" aria-label="翻转工作强度证据盒" onclick="toggleClue(this)">
+          <span class="clue-inner">
+            <span class="clue-face clue-front"><span><span class="clue-top"><span class="clue-index">03</span><span class="status conflict">说法冲突</span></span><h3>双休口径与晚间加班线索并存</h3><p>官方强调弹性双休，匿名汇编则提到个别研发项目组晚间工作。</p></span><span class="clue-foot"><span>证据 E12 / E16</span><span class="flip-hint">查看判断边界</span></span></span>
+            <span class="clue-face clue-back"><span><span class="clue-top"><span class="clue-index">03</span><span class="status conflict">边界</span></span><h3>项目组差异比公司标签更重要</h3><p>匿名线索无法代表全公司。应询问目标团队过去四周的日常下班时间和周末支持频率。</p></span><span class="clue-foot"><span>下一步：锁定目标团队</span><span class="flip-hint">返回线索</span></span></span>
+          </span>
+        </button>
+        <button class="clue-card" type="button" aria-pressed="false" aria-label="翻转历史治理证据盒" onclick="toggleClue(this)">
+          <span class="clue-inner">
+            <span class="clue-face clue-front"><span><span class="clue-top"><span class="clue-index">04</span><span class="status signal">历史线索</span></span><h3>股权纠纷和侵权败诉需要分开看</h3><p>历史材料涉及老员工股权纠纷和知识产权诉讼，但时间与当前岗位相距较远。</p></span><span class="clue-foot"><span>证据 E6 / E8</span><span class="flip-hint">查看判断边界</span></span></span>
+            <span class="clue-face clue-back"><span><span class="clue-top"><span class="clue-index">04</span><span class="status signal">边界</span></span><h3>旧案件不能直接代表当前管理</h3><p>它们更适合作为签约提醒。期权、奖金和岗位承诺应有书面条款，不依赖口头表述。</p></span><span class="clue-foot"><span>下一步：核对书面条款</span><span class="flip-hint">返回线索</span></span></span>
+          </span>
+        </button>
+        <button class="clue-card" type="button" aria-pressed="false" aria-label="翻转雇主主体证据盒" onclick="toggleClue(this)">
+          <span class="clue-inner">
+            <span class="clue-face clue-front"><span><span class="clue-top"><span class="clue-index">05</span><span class="status verified">主体已识别</span></span><h3>品牌、总部与广州研发主体不是一回事</h3><p>4399 企业群包含厦门总部主体和广州关联研发主体，本次合同甲方尚未提供。</p></span><span class="clue-foot"><span>证据 E1 / E4</span><span class="flip-hint">查看判断边界</span></span></span>
+            <span class="clue-face clue-back"><span><span class="clue-top"><span class="clue-index">05</span><span class="status unknown">关键未知</span></span><h3>品牌名不能代替劳动合同主体</h3><p>接受前应逐项核对合同甲方、发薪、个税、社保和公积金主体，并确认不一致的原因。</p></span><span class="clue-foot"><span>下一步：拿到五个主体字段</span><span class="flip-hint">返回线索</span></span></span>
+          </span>
+        </button>
+        <button class="clue-card" type="button" aria-pressed="false" aria-label="翻转材料排伪证据盒" onclick="toggleClue(this)">
+          <span class="clue-inner">
+            <span class="clue-face clue-front"><span><span class="clue-top"><span class="clue-index">06</span><span class="status verified">已排除</span></span><h3>玩家抱怨不能充当员工体验</h3><p>游戏体验差评、同源转载和自动摘要已从雇主判断材料中剔除。</p></span><span class="clue-foot"><span>排除记录 X1-X6</span><span class="flip-hint">查看判断边界</span></span></span>
+            <span class="clue-face clue-back"><span><span class="clue-top"><span class="clue-index">06</span><span class="status unknown">仍有缺口</span></span><h3>排除噪音不等于获得了真相</h3><p>当前仍缺目标城市、岗位与团队的一手体验。没有搜到材料不能解读为没有问题。</p></span><span class="clue-foot"><span>下一步：补目标团队材料</span><span class="flip-hint">返回线索</span></span></span>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section checklist-shell reveal" aria-labelledby="questions-title">
+      <div class="checklist-head">
+        <div><h2 id="questions-title">把这六问带进下一轮沟通</h2><p>先锁定目标团队，再核对 Offer 条款。可以勾选已取得书面回答的项目。</p></div>
+        <button class="copy-button" type="button" onclick="copyQuestions()">复制六个问题</button>
+      </div>
+      <div class="stage-grid">
+        <section class="stage-panel" aria-labelledby="before-interview">
+          <h3 id="before-interview">进入最终沟通前</h3><p>回答应具体到城市、业务线和目标项目组。</p>
+          <label class="question"><input type="checkbox"><span><strong>锁定合同与工作地点</strong><span class="question-text">最终劳动合同签署主体是哪家公司？社保和公积金在哪个城市缴纳？</span></span></label>
+          <label class="question"><input type="checkbox"><span><strong>问过去四周工作节奏</strong><span class="question-text">目标项目组日常与节点期通常几点结束工作？周末支持的频率大约多少？</span></span></label>
+          <label class="question"><input type="checkbox"><span><strong>确认加班处理方式</strong><span class="question-text">加班如何记录？公司提供调休、加班费还是其他书面安排？</span></span></label>
+        </section>
+        <section class="stage-panel" aria-labelledby="after-offer">
+          <h3 id="after-offer">拿到 Offer 后</h3><p>口头承诺要落到可复核的计算方式与条款。</p>
+          <label class="question"><input type="checkbox"><span><strong>拆开奖金和双薪</strong><span class="question-text">奖金是固定、保底还是目标奖金？基数、系数、发放月份和折算方式分别是什么？</span></span></label>
+          <label class="question"><input type="checkbox"><span><strong>确认岗位为何开放</strong><span class="question-text">这是新增编制还是离职补员？团队过去一年的人员流动情况如何？</span></span></label>
+          <label class="question"><input type="checkbox"><span><strong>核对调动与试用期</strong><span class="question-text">是否存在跨城市或跨主体调动条款？试用期录用条件和不通过标准是什么？</span></span></label>
+        </section>
+      </div>
+      <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="scope-band reveal" aria-labelledby="scope-title">
+      <div class="scope-title"><h2 id="scope-title">这份报告有明确边界</h2><p>企业层材料帮助决定是否继续接触，不能代替岗位层和个人机会判断。</p></div>
+      <div class="scope-list">
+        <article class="scope-item"><strong>现在能确认</strong><p>品牌主体、关联研发主体、公开招聘与持续经营活动。</p></article>
+        <article class="scope-item"><strong>现在不能确认</strong><p>目标团队工时、奖金兑现、管理方式和岗位稳定性。</p></article>
+        <article class="scope-item"><strong>不应推导</strong><p>公司有资产投入，不代表你的岗位安全或福利一定更好。</p></article>
+        <article class="scope-item"><strong>改分条件</strong><p>取得 JD、Offer、目标团队材料与书面制度后重新判断。</p></article>
+      </div>
+    </section>
+
+    <footer>Sherlock Company | 基于当前证据的决策辅助，不是对企业、法律结果或个人职业结果的保证。</footer>
+  </main>
+  <script>
+    function toggleClue(button) {
+      const pressed = button.getAttribute('aria-pressed') === 'true';
+      button.setAttribute('aria-pressed', String(!pressed));
+    }
+    async function copyQuestions() {
+      const status = document.getElementById('copy-status');
+      const questions = Array.from(document.querySelectorAll('.question-text'))
+        .map((item,index) => `${index + 1}. ${item.textContent.trim()}`)
+        .join('\n');
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(questions);
+        } else {
+          const textarea = document.createElement('textarea');
+          textarea.value = questions; textarea.setAttribute('readonly','');
+          textarea.style.position = 'fixed'; textarea.style.opacity = '0';
+          document.body.appendChild(textarea); textarea.select();
+          const copied = document.execCommand('copy'); textarea.remove();
+          if (!copied) throw new Error('copy failed');
+        }
+        status.textContent = '已复制 6 个问题，可直接粘贴到微信或备忘录。';
+      } catch (error) {
+        status.textContent = '复制失败，请手动选择上方问题。';
+      }
+    }
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealItems = document.querySelectorAll('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold:.12 });
+      revealItems.forEach((item) => observer.observe(item));
+    }
+  </script>
+</body>
+</html>

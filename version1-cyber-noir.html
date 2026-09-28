@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sherlock Company · 赛博暗夜调查局 (Version 1)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans SC"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            cyber: {
+              bg: '#07090E',
+              surface: '#0E131F',
+              card: '#131B2C',
+              border: '#1E293B',
+              neon: '#00F2FE',
+              amber: '#F59E0B',
+              red: '#EF4444',
+              emerald: '#10B981',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #07090E;
+      color: #E2E8F0;
+      background-image: radial-gradient(rgba(0, 242, 254, 0.04) 1px, transparent 1px), radial-gradient(rgba(245, 158, 11, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+    }
+    .neon-border {
+      box-shadow: 0 0 20px -5px rgba(0, 242, 254, 0.25);
+    }
+    .amber-glow {
+      box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.3);
+    }
+    .radar-scan {
+      position: relative;
+      overflow: hidden;
+    }
+    .radar-scan::after {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(0, 242, 254, 0.15), transparent);
+      animation: scan 4s linear infinite;
+    }
+    @keyframes scan {
+      0% { top: -100%; }
+      100% { top: 100%; }
+    }
+    .tag-pulse {
+      animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .4; }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased min-h-screen selection:bg-cyan-500 selection:text-black">
+
+  <!-- 顶部全局切换导航条 (三版自如切换) -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-black/60 border-b border-slate-800/80 px-4 py-2.5">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-mono font-bold text-sm">
+          SH
+        </div>
+        <div>
+          <span class="text-xs uppercase tracking-widest text-cyan-400 font-mono font-bold block">Sherlock Company Taste Lab</span>
+          <span class="text-sm font-semibold text-white">方案一 · 赛博暗夜调查局 (Cyber Noir)</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 bg-slate-900/90 p-1 rounded-xl border border-slate-800 text-xs">
+        <span class="text-slate-400 px-2 py-1 font-mono text-[11px] hidden sm:inline">三版对比选版：</span>
+        <a href="version1-cyber-noir.html" class="px-3 py-1 rounded-lg bg-cyan-500 text-black font-semibold flex items-center gap-1.5 shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+          版本 1 · 赛博暗夜
+        </a>
+        <a href="version2-classic-dossier.html" class="px-3 py-1 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">
+          版本 2 · 贝克街解密卷宗
+        </a>
+        <a href="version3-pop-toy-lab.html" class="px-3 py-1 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">
+          版本 3 · 潮玩盲盒开箱馆
+        </a>
+        <a href="index.html" class="px-2.5 py-1 rounded-lg text-amber-400 hover:bg-amber-500/10 transition border border-amber-500/30 ml-1">
+          ✦ 方案总览
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    
+    <!-- 顶栏状态指示条 -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-800/80 pb-4 text-xs font-mono">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-400">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 tag-pulse"></span>
+          LIVE DOSSIER
+        </span>
+        <span class="text-slate-400">案件编号: <span class="text-slate-200">#SH-2026-4399</span></span>
+        <span class="text-slate-500">|</span>
+        <span class="text-slate-400">核查基准: <span class="text-slate-200">2026-09-26 同源数据 v4</span></span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <span>已锁定证据: <strong class="text-cyan-400">17 项</strong></span>
+        <span>排除误报: <strong class="text-amber-400">6 项</strong></span>
+        <span>双盲复核差异: <strong class="text-emerald-400">0 分 (一致)</strong></span>
+      </div>
+    </div>
+
+    <!-- 主布局：左右非对称网格 -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- 左侧：3D 潮玩探长展位与核心诊断雷达 (占 5 列) -->
+      <aside class="lg:col-span-5 space-y-6 lg:sticky lg:top-20">
+        
+        <!-- 潮玩探长 3D 展位卡片 -->
+        <div class="relative bg-gradient-to-b from-[#101726] to-[#0A0E17] border border-cyan-500/30 rounded-2xl p-5 overflow-hidden neon-border">
+          <div class="absolute -right-16 -top-16 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-16 -bottom-16 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <!-- IP 形象展示核心 -->
+          <div class="relative rounded-xl overflow-hidden border border-slate-700/60 bg-black/40 group">
+            <div class="relative w-full aspect-square overflow-hidden">
+              <img 
+                src="assets/sherlock_ip_cyber.jpg" 
+                alt="Sherlock Cyber Detective Pop Mart Figurine" 
+                class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
+              >
+              <!-- 探长全息扫描覆盖层 -->
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-80"></div>
+              
+              <!-- 品牌特征徽章 -->
+              <div class="absolute top-3 left-3 flex flex-col gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-cyan-400/50 text-[11px] font-mono text-cyan-300 font-semibold flex items-center gap-1.5 shadow-lg">
+                  <span class="text-amber-400">🎩</span> 经典千鸟格猎鹿帽
+                </span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-amber-400/50 text-[11px] font-mono text-amber-300 font-semibold flex items-center gap-1.5 shadow-lg">
+                  <span class="text-amber-400">💨</span> 石楠木弯曲烟斗
+                </span>
+              </div>
+
+              <!-- 潮玩属性标志 -->
+              <div class="absolute bottom-3 right-3 px-3 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-cyan-500/40 text-right">
+                <span class="block text-[10px] text-slate-400 uppercase tracking-widest font-mono">POPMART EDITION</span>
+                <span class="text-xs font-bold text-white tracking-wide">CHIEF DETECTIVE #01</span>
+              </div>
+            </div>
+
+            <!-- 探长对话框气泡 -->
+            <div class="p-3.5 bg-slate-900/90 border-t border-slate-800 text-xs">
+              <div class="flex items-start gap-2.5">
+                <div class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0 font-bold font-mono">S</div>
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="font-bold text-slate-200">探长夏洛克 · 现场破译</span>
+                    <span class="text-[10px] font-mono text-cyan-400/80 px-1.5 py-0.5 rounded bg-cyan-950/80">EVIDENCE-DRIVEN</span>
+                  </div>
+                  <p class="text-slate-300 leading-relaxed font-sans text-[12px]">
+                    “4399 主体清晰、经营稳定且近年大额拿地，但在社交平台上的<strong>一手员工体验为 0</strong>。高分是表象，底线看契约。请务必带上我给你准备的<span class="text-cyan-300 font-semibold">【面试六问】</span>去现场刺探。”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 核心评级：企业星与置信度 -->
+          <div class="mt-5 p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="flex items-end justify-between mb-3">
+              <div>
+                <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block">ENTERPRISE RATING</span>
+                <h3 class="text-xl font-bold text-white mt-0.5 flex items-center gap-2">
+                  四三九九 (4399)
+                  <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-normal">厦门总部+广州主体</span>
+                </h3>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-mono text-amber-400/80 uppercase block">置信度: 低</span>
+                <span class="text-[11px] text-slate-400">一手体验严重缺失</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 bg-black/40 p-3.5 rounded-lg border border-slate-800">
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-amber-400 font-mono tracking-tight">3.5</span>
+                <span class="text-lg text-slate-500 font-mono">/5.0</span>
+              </div>
+              <div class="h-10 w-px bg-slate-800"></div>
+              <div class="flex-1">
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-0.5">
+                  <span>★</span><span>★</span><span>★</span><span class="text-amber-400/60">★</span><span class="text-slate-600">★</span>
+                  <span class="text-xs text-slate-300 ml-2 font-medium">有条件考虑 ~ 重点考虑</span>
+                </div>
+                <p class="text-[11px] text-slate-400">
+                  相邻档拒评理由：不评 3 星因现时活跃无硬性爆雷；不评 4 星因用工体验全依赖宣传口径。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 大维度赛博诊断光柱 -->
+          <div class="mt-5 space-y-2.5">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 px-1">
+              <span>DIMENSIONS (五维探测)</span>
+              <span>VERDICT</span>
+            </div>
+
+            <!-- 待遇 -->
+            <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800/80 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span class="text-xs font-medium text-slate-200">待遇兑现</span>
+                <span class="text-[10px] font-mono text-slate-500">(E3/E10)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">弱偏正 · 缺独立印证</span>
+              </div>
+            </div>
+
+            <!-- 稳定 -->
+            <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800/80 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                <span class="text-xs font-medium text-slate-200">业务稳定性</span>
+                <span class="text-[10px] font-mono text-slate-500">(E5b/E17)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/30">强正向 · 百强/金融城地块</span>
+              </div>
+            </div>
+
+            <!-- 强度 -->
+            <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800/80 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                <span class="text-xs font-medium text-slate-200">工作强度</span>
+                <span class="text-[10px] font-mono text-slate-500">(E12/E16)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-500/30">项目组分化严重</span>
+              </div>
+            </div>
+
+            <!-- 管理 -->
+            <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800/80 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                <span class="text-xs font-medium text-slate-200">管理与历史</span>
+                <span class="text-[10px] font-mono text-slate-500">(E6/E8)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] text-red-400 bg-red-950/60 px-2 py-0.5 rounded border border-red-500/30">弱偏负 · 股权争议/诉讼陈旧</span>
+              </div>
+            </div>
+
+            <!-- 成长 -->
+            <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800/80 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-slate-500"></span>
+                <span class="text-xs font-medium text-slate-200">成长发展</span>
+                <span class="text-[10px] font-mono text-slate-500">(E4)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded">有效数据缺证</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </aside>
+
+      <!-- 右侧：证据流、反证推演、交互式面试追问 (占 7 列) -->
+      <section class="lg:col-span-7 space-y-6">
+        
+        <!-- 关键判断：3 大核心破案推演 -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded bg-cyan-400"></span>
+              探长夏洛克 · 核心反证推演
+            </h2>
+            <span class="text-xs font-mono text-slate-500 uppercase">HYPOTHESIS vs FACT</span>
+          </div>
+
+          <div class="space-y-4">
+            <!-- 推演 1 -->
+            <div class="p-4 rounded-xl bg-black/40 border border-slate-800 hover:border-cyan-500/40 transition">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 text-[11px] font-mono font-bold">推演 01</span>
+                <h4 class="text-sm font-semibold text-slate-200">主体清晰、经营现时活跃，不可作濒危企业推断</h4>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                4399 品牌归属厦门总部；广州主体承担主力研发发行，并在 2024-11 竞得天河金融城东区地块约 6.03 亿元拟建未来总部（E17，天河区政府网原文已核）；自 2013 年起连续十三年入选中国互联网百强（E5b）；校招与社招持续放量。
+              </p>
+            </div>
+
+            <!-- 推演 2 -->
+            <div class="p-4 rounded-xl bg-black/40 border border-slate-800 hover:border-amber-500/40 transition">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="px-2 py-0.5 rounded bg-amber-950 text-amber-400 text-[11px] font-mono font-bold">推演 02</span>
+                <h4 class="text-sm font-semibold text-slate-200">一手雇主体验几乎空白，且存在自相矛盾</h4>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                一手员工体验证据为 0 条（主流职场平台原文全部不可达）。宣传层「包三餐、双休、年底双薪」（E3/E10）与匿名汇总中的「项目组惨烈、晚 9 点下班」（E12）并存，无法排除项目组间极其剧烈的强度分化。
+              </p>
+            </div>
+
+            <!-- 推演 3 -->
+            <div class="p-4 rounded-xl bg-black/40 border border-slate-800 hover:border-red-500/40 transition">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="px-2 py-0.5 rounded bg-red-950 text-red-400 text-[11px] font-mono font-bold">推演 03</span>
+                <h4 class="text-sm font-semibold text-slate-200">治理史有确凿伤痕，但时间均已陈旧</h4>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                高管股权承诺缩水纠纷（E6）、2014 广州未证实裁员传闻（E7）、2019 暴雪诉讼败诉赔款约 400 万（E8）均为历史确凿或陈旧争议，近年无延续证据，但警示求职者：<strong>涉及长期激励承诺，务必坚持合同书面化</strong>。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 交互式面试避坑六问 (可勾选终端) -->
+        <div class="bg-gradient-to-b from-slate-900/90 to-slate-950 border border-cyan-500/30 rounded-2xl p-6 relative overflow-hidden">
+          <div class="flex items-center justify-between mb-2">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+              <span class="text-cyan-400">🕵️‍♂️</span> 探长特供：求职者「面试追问终端」
+            </h2>
+            <button onclick="copyAllQuestions()" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 px-3 py-1 rounded bg-cyan-950/80 border border-cyan-500/30 transition">
+              [一键复制追问清单]
+            </button>
+          </div>
+          <p class="text-xs text-slate-400 mb-4">
+            去 4399 面试前，把这六个问题打印或存入备忘录。逐一核实打勾，排除合同陷阱：
+          </p>
+
+          <div class="space-y-2.5 font-mono text-xs">
+            <label class="flex items-start gap-3 p-3 rounded-lg bg-black/50 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+              <input type="checkbox" class="mt-0.5 rounded border-slate-700 text-cyan-500 focus:ring-0 bg-slate-900">
+              <span class="text-slate-300"><strong class="text-cyan-400">Q1. 签约主体：</strong>我的劳动合同签约主体全称是哪家（厦门总部还是广州子公司）？社保在哪个城市实际缴纳？</span>
+            </label>
+            <label class="flex items-start gap-3 p-3 rounded-lg bg-black/50 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+              <input type="checkbox" class="mt-0.5 rounded border-slate-700 text-cyan-500 focus:ring-0 bg-slate-900">
+              <span class="text-slate-300"><strong class="text-cyan-400">Q2. 实际强度：</strong>我应聘的目标项目组，过去 3 个月平均几点下班？版本节点前后节奏如何？</span>
+            </label>
+            <label class="flex items-start gap-3 p-3 rounded-lg bg-black/50 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+              <input type="checkbox" class="mt-0.5 rounded border-slate-700 text-cyan-500 focus:ring-0 bg-slate-900">
+              <span class="text-slate-300"><strong class="text-cyan-400">Q3. 加班补偿：</strong>日常加班是否有明确的调休或加班费？是否有白纸黑字的书面考勤制度？</span>
+            </label>
+            <label class="flex items-start gap-3 p-3 rounded-lg bg-black/50 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+              <input type="checkbox" class="mt-0.5 rounded border-slate-700 text-cyan-500 focus:ring-0 bg-slate-900">
+              <span class="text-slate-300"><strong class="text-cyan-400">Q4. 年终兑现：</strong>对外宣传的「年底双薪/年终奖」如何考核？近两年团队的实际平均发放比例是多少？</span>
+            </label>
+            <label class="flex items-start gap-3 p-3 rounded-lg bg-black/50 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+              <input type="checkbox" class="mt-0.5 rounded border-slate-700 text-cyan-500 focus:ring-0 bg-slate-900">
+              <span class="text-slate-300"><strong class="text-cyan-400">Q5. 人员流转：</strong>目标岗位是业务扩张新增，还是前任离职补员？团队近一年离职率如何？</span>
+            </label>
+            <label class="flex items-start gap-3 p-3 rounded-lg bg-black/50 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+              <input type="checkbox" class="mt-0.5 rounded border-slate-700 text-cyan-500 focus:ring-0 bg-slate-900">
+              <span class="text-slate-300"><strong class="text-cyan-400">Q6. 跨城调配：</strong>劳动合同中是否有强制跨城市（厦门⇄广州）或跨主体的调配条款？</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 核心证据账本流 -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h2 class="text-base font-bold text-white">证据账本链条 (E1 ~ E17)</h2>
+              <p class="text-xs text-slate-400 mt-0.5">每项结论均绑定公开可核材料与可追溯 ID</p>
+            </div>
+            <div class="flex gap-2 text-xs">
+              <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30">● 已核原文</span>
+              <span class="px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-500/30">▲ 摘要引用</span>
+            </div>
+          </div>
+
+          <div class="space-y-3 font-mono text-xs">
+            
+            <!-- E17 -->
+            <div class="p-3.5 rounded-xl bg-black/30 border border-slate-800 hover:border-cyan-500/40 transition">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="text-cyan-400 font-bold bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">E17</span>
+                  <span class="text-slate-200 font-semibold font-sans">广州主体 6.03 亿元竞得天河金融城东区地块</span>
+                </div>
+                <span class="text-emerald-400 font-mono text-[11px]">天河区政府网 · 原文已核</span>
+              </div>
+              <p class="text-slate-400 font-sans text-xs leading-relaxed">
+                2024-11-26 广州四三九九信息科技有限公司竞得天河金融城东区 AT091431 地块，用于建设总部大楼，印证广州主体长期重资产经营投入。
+              </p>
+            </div>
+
+            <!-- E5b -->
+            <div class="p-3.5 rounded-xl bg-black/30 border border-slate-800 hover:border-cyan-500/40 transition">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="text-cyan-400 font-bold bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">E5b</span>
+                  <span class="text-slate-200 font-semibold font-sans">连续 13 年入选中国互联网百强企业榜单</span>
+                </div>
+                <span class="text-emerald-400 font-mono text-[11px]">厦门日报 · 原文已核</span>
+              </div>
+              <p class="text-slate-400 font-sans text-xs leading-relaxed">
+                2025 年位列综合实力百强第 30 位，自 2013 年榜单创立起连续入选，构成「业务稳定」维度的强力客观支柱。
+              </p>
+            </div>
+
+            <!-- E8 -->
+            <div class="p-3.5 rounded-xl bg-black/30 border border-slate-800 hover:border-red-500/40 transition">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="text-red-400 font-bold bg-red-950/80 px-2 py-0.5 rounded border border-red-500/30">E8</span>
+                  <span class="text-slate-200 font-semibold font-sans">暴雪等著作权诉讼案败诉并赔偿约 400 万元</span>
+                </div>
+                <span class="text-red-400 font-mono text-[11px]">法院生效判决 · 历史已决</span>
+              </div>
+              <p class="text-slate-400 font-sans text-xs leading-relaxed">
+                2019 终审判决确认赔偿约 400 万元（拆分为 300 万及 97 万余）。属知识产权历史遗留合规问题，无现时新诉讼证据。
+              </p>
+            </div>
+
+            <!-- 误报排除 X1-X6 摘要 -->
+            <div class="p-3 rounded-lg bg-slate-900/80 border border-dashed border-slate-700 text-slate-400 text-[11px]">
+              <div class="font-bold text-amber-400 mb-1">🛡️ 误报与偏见排除记录 (已剔除 6 项无效信息)</div>
+              <span>排除：机构软文「研发加班到9点」、游戏玩家对玩法的宣泄差评、AI摘要生成的无源断言、错配的「绝区零发行」传言。保证背调客观独立。</span>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- 底部版权与免责声明 -->
+    <footer class="mt-16 pt-8 border-t border-slate-800/80 text-center text-xs text-slate-500 font-mono">
+      <p class="mb-2">SHERLOCK COMPANY EMPLOYER INTELLIGENCE SYSTEM · VERSION 1 CYBER NOIR</p>
+      <p class="text-[11px] text-slate-600">
+        免责声明：本报告由公开材料整理，企业星不代表个人入职建议。涉及法律及重大决策请独立核验原件。
+      </p>
+    </footer>
+
+  </main>
+
+  <script>
+    function copyAllQuestions() {
+      const questions = [
+        "1. 我的劳动合同签约主体全称是哪家（厦门总部还是广州子公司）？社保在哪个城市实际缴纳？",
+        "2. 我应聘的目标项目组，过去3个月平均几点下班？版本节点前后节奏如何？",
+        "3. 日常加班是否有明确的调休或加班费？是否有白纸黑字的书面考勤制度？",
+        "4. 对外宣传的「年底双薪/年终奖」如何考核？近两年团队的实际平均发放比例是多少？",
+        "5. 目标岗位是业务扩张新增，还是前任离职补员？团队近一年离职率如何？",
+        "6. 劳动合同中是否有强制跨城市（厦门⇄广州）或跨主体的调配条款？"
+      ].join("\\n");
+      navigator.clipboard.writeText(questions).then(() => {
+        alert("已成功复制面试六问清单到剪贴板！可直接粘贴至手机备忘录。");
+      });
+    }
+  </script>
+</body>
+</html>

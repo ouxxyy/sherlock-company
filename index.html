@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sherlock Company · Taste Skill 三版设计选版中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans SC"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen selection:bg-amber-400 selection:text-black">
+
+  <!-- 顶部主标题 -->
+  <header class="border-b border-slate-800 bg-slate-900/60 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-bold text-lg shadow-lg">
+          🔍
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+            Sherlock Company · Taste Skill 选版实验室
+            <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 font-mono">v4.0 Live</span>
+          </h1>
+          <p class="text-xs text-slate-400 mt-0.5">
+            泡泡玛特（Pop Mart）潮玩夏洛克 IP 形象 × 3 种极具张力的差异化体验
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 text-xs font-mono text-slate-400">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 border border-slate-700">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span> 3 版 HTML 均已自包含就绪
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+    
+    <!-- 需求与 IP 亮点对齐看板 -->
+    <div class="bg-gradient-to-r from-slate-900 via-slate-900 to-slate-800/80 border border-slate-800 rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-mono font-bold mb-3">
+          ✦ DESIGN BRIEF & IP HIGHLIGHTS
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          将严谨的企业调查，注入泡泡玛特潮玩 IP 的灵性与辨识度
+        </h2>
+        <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+          根据您的指令，我们彻底拒绝千篇一律的 AI 紫渐变和模板化卡片。借助真实生成的 3D 泡泡玛特盲盒公仔，<strong>严格体现夏洛克的千鸟格猎鹿帽（deerstalker hat）与石楠木弯烟斗（briar pipe）特征</strong>，并以此为锚点构建了 3 个在色彩哲学、排版骨架、交互节奏上截然不同的结果呈现供您挑选：
+        </p>
+      </div>
+
+      <!-- 核心特征快速指示条 -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 pt-6 border-t border-slate-800 text-xs">
+        <div class="flex items-center gap-3 text-slate-300">
+          <span class="text-lg">🎩</span>
+          <div>
+            <strong class="text-white block">千鸟格绑带猎鹿帽</strong>
+            <span class="text-slate-400 text-[11px]">经典英伦侦探符号，Q萌潮玩比例</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 text-slate-300">
+          <span class="text-lg">💨</span>
+          <div>
+            <strong class="text-white block">石楠木弯曲烟斗</strong>
+            <span class="text-slate-400 text-[11px]">吐纳青烟/问号烟圈，从容破案姿态</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 text-slate-300">
+          <span class="text-lg">🔎</span>
+          <div>
+            <strong class="text-white block">求职者自保六问</strong>
+            <span class="text-slate-400 text-[11px]">4399 真实调查数据 E1-E17 全量支持</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 三版差异化卡片矩阵 (选版主阵地) -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- 方案 1：赛博暗夜调查局 -->
+      <div class="group bg-slate-900/90 border border-slate-800 hover:border-cyan-500/60 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10">
+        <div>
+          <!-- IP 形象预览图 -->
+          <div class="relative aspect-square rounded-2xl overflow-hidden mb-5 border border-slate-800 bg-black/60">
+            <img 
+              src="assets/sherlock_ip_cyber.jpg" 
+              alt="Cyber Sherlock Pop Mart Toy" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-cyan-500/40 text-[11px] font-mono text-cyan-400 font-bold">
+              VERSION 01
+            </div>
+            <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-black/80 text-[10px] font-mono text-slate-300">
+              VARIANCE: 8 · MOTION: 7
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              <span class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">CYBER DETECTIVE TERMINAL</span>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition">
+              方案一 · 赛博暗夜调查局
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              <strong>调性：</strong>极客暗黑风 (Deep Onyx / Slate-950) + 荧光青/琥珀金 HUD 警戒雷达。<br>
+              <strong>IP 呈现：</strong>3D 潮玩探长置于全息展示仓，手持发光全息放大镜，带呼吸扫描灯与破译台词气泡。<br>
+              <strong>交互：</strong>证据流时间轴、五维光柱、交互式可勾选面试追问终端。
+            </p>
+          </div>
+
+          <!-- 适用人群 -->
+          <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-slate-400">
+            <span class="text-slate-500">最适场景：</span> 技术极客、程序员求职背调、数据硬核审查。
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <a 
+            href="version1-cyber-noir.html" 
+            class="w-full py-3 px-4 rounded-xl bg-cyan-500 text-black font-bold text-xs flex items-center justify-center gap-2 hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20"
+          >
+            <span>打开体验方案一 (Cyber Noir)</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 方案 2：贝克街解密卷宗 -->
+      <div class="group bg-slate-900/90 border border-slate-800 hover:border-red-500/60 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/10">
+        <div>
+          <!-- IP 形象预览图 -->
+          <div class="relative aspect-square rounded-2xl overflow-hidden mb-5 border border-slate-800 bg-white">
+            <img 
+              src="assets/sherlock_ip_classic.jpg" 
+              alt="Classic Sherlock Pop Mart Toy" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-red-500/40 text-[11px] font-mono text-red-400 font-bold">
+              VERSION 02
+            </div>
+            <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-black/80 text-[10px] font-mono text-slate-300">
+              VARIANCE: 6 · MOTION: 4
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-red-400"></span>
+              <span class="text-xs font-mono font-bold text-red-400 uppercase tracking-wider">SWISS EDITORIAL DOSSIER</span>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-red-400 transition">
+              方案二 · 贝克街解密卷宗
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              <strong>调性：</strong>顶级瑞士排版 + 绝密纸质档案袋 (Classified Dossier) + 机密印章红。<br>
+              <strong>IP 呈现：</strong>以拍立得/档案附签的形式斜贴在卷宗封面，粗花呢风衣斗篷与石楠木弯烟斗质感极其高级。<br>
+              <strong>交互：</strong>打字机等宽字体、红印章、精密的证据网格登记簿与督察手记。
+            </p>
+          </div>
+
+          <!-- 适用人群 -->
+          <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-slate-400">
+            <span class="text-slate-500">最适场景：</span> 中高管求职、严肃尽调背调、法律与合规审计视角。
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <a 
+            href="version2-classic-dossier.html" 
+            class="w-full py-3 px-4 rounded-xl bg-red-700 text-white font-bold text-xs flex items-center justify-center gap-2 hover:bg-red-600 transition shadow-lg shadow-red-700/20"
+          >
+            <span>打开体验方案二 (Classified)</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 方案 3：潮玩盲盒开箱馆 -->
+      <div class="group bg-slate-900/90 border border-slate-800 hover:border-orange-500/60 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/10">
+        <div>
+          <!-- IP 形象预览图 -->
+          <div class="relative aspect-square rounded-2xl overflow-hidden mb-5 border border-slate-800 bg-white">
+            <img 
+              src="assets/sherlock_ip_pop.jpg" 
+              alt="Pop Blind Box Sherlock Toy" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-orange-500/40 text-[11px] font-mono text-orange-400 font-bold">
+              VERSION 03
+            </div>
+            <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-black/80 text-[10px] font-mono text-slate-300">
+              VARIANCE: 9 · MOTION: 8
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+              <span class="text-xs font-mono font-bold text-orange-400 uppercase tracking-wider">POP TOY LAB & UNBOXING</span>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition">
+              方案三 · 潮玩盲盒开箱馆
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              <strong>调性：</strong>泡泡玛特盲盒新锐潮玩展厅 (Pop Toy Clay & Neon Mint) + 3D 拟物感。<br>
+              <strong>IP 呈现：</strong>正版盲盒外包装盒 + 手办吐出问号烟圈、俏皮眨眼，极具潮玩收藏感。<br>
+              <strong>交互：</strong>5 张盲盒卡牌支持<strong>点击 3D 翻转</strong>（正面看表象，背面看反证），趣味性拉满。
+            </p>
+          </div>
+
+          <!-- 适用人群 -->
+          <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-slate-400">
+            <span class="text-slate-500">最适场景：</span> 应届生/年轻人、小红书及社交媒体传播、生动解压的避坑利器。
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <a 
+            href="version3-pop-toy-lab.html" 
+            class="w-full py-3 px-4 rounded-xl bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-2 hover:bg-orange-400 transition shadow-lg shadow-orange-500/20"
+          >
+            <span>打开体验方案三 (Blind Box)</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 三版设计指标与参数对比表 (Taste Dial Comparison) -->
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider block">TASTE SKILL MATRIX</span>
+          <h3 class="text-xl font-bold text-white mt-1">设计三拨盘（Dials）与特性全景对比</h3>
+        </div>
+        <span class="text-xs text-slate-400 font-mono hidden sm:inline">ZERO-SLOP DESIGN</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 text-slate-400 font-mono">
+              <th class="py-3 px-4">维度指标</th>
+              <th class="py-3 px-4 text-cyan-400">方案一 · 赛博暗夜调查局</th>
+              <th class="py-3 px-4 text-red-400">方案二 · 贝克街解密卷宗</th>
+              <th class="py-3 px-4 text-orange-400">方案三 · 潮玩盲盒开箱馆</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60 font-sans text-slate-300">
+            <tr>
+              <td class="py-3.5 px-4 font-mono text-slate-400 font-semibold">Variance (排版差异度)</td>
+              <td class="py-3.5 px-4"><span class="font-mono text-cyan-300 font-bold">8</span> (左右非对称 HUD 监控台)</td>
+              <td class="py-3.5 px-4"><span class="font-mono text-red-300 font-bold">6</span> (瑞士现代网格 + 纸质档案)</td>
+              <td class="py-3.5 px-4"><span class="font-mono text-orange-300 font-bold">9</span> (新锐盲盒展台 + 动态翻转卡)</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-mono text-slate-400 font-semibold">Motion (动效与交互强度)</td>
+              <td class="py-3.5 px-4"><span class="font-mono text-cyan-300 font-bold">7</span> (呼吸发光、扫描线、勾选终端)</td>
+              <td class="py-3.5 px-4"><span class="font-mono text-red-300 font-bold">4</span> (克制沉稳、拍立得微悬停)</td>
+              <td class="py-3.5 px-4"><span class="font-mono text-orange-300 font-bold">8</span> (3D 翻牌物理动效、镭射流光)</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-mono text-slate-400 font-semibold">Density (信息呈现密度)</td>
+              <td class="py-3.5 px-4"><span class="font-mono text-cyan-300 font-bold">5</span> (折叠终端、流式证据链)</td>
+              <td class="py-3.5 px-4"><span class="font-mono text-red-300 font-bold">3</span> (留白呼吸感、严肃长篇引证)</td>
+              <td class="py-3.5 px-4"><span class="font-mono text-orange-300 font-bold">4</span> (模块化大卡片、卡背反转阅读)</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-mono text-slate-400 font-semibold">夏洛克 IP 道具与形态</td>
+              <td class="py-3.5 px-4">全息发光放大镜 + 科技小风衣 + 弯烟斗</td>
+              <td class="py-3.5 px-4">拍立得质感 + 粗花呢千鸟格斗篷 + 石楠木烟斗</td>
+              <td class="py-3.5 px-4">正版盲盒包装盒 + 吐出问号烟圈 + 俏皮眨眼</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-mono text-slate-400 font-semibold">求职者核心获得感</td>
+              <td class="py-3.5 px-4">极客诊断感，一目了然的证据雷达</td>
+              <td class="py-3.5 px-4">权威背调档案，法律与判词级的公信力</td>
+              <td class="py-3.5 px-4">趣味解压、主动翻卡揭露反向真相</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 底部版权 -->
+    <footer class="pt-6 pb-12 text-center text-xs text-slate-600 font-mono">
+      <p>Sherlock Company · Taste-Driven Multi-Version Interface Evaluation</p>
+      <p class="mt-1">Generated with Pop Mart Detective IP Assets · 2026</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
