@@ -1,8 +1,20 @@
-# Sherlock Company
+# Sherlock Company｜入职前查公司与 Offer 公司证据调查 Skill
 
 **Offer 前的公司证据调查助手。** 输入公司、岗位、城市和你最关心的问题，它会把网上的各种说法整理成四种状态——已证实 / 有线索 / 说法冲突 / 还不知道——并给你一份接受 Offer 前的核实清单，和一份可以离线打开的 HTML「侦探档案」。
 
 它不猜一家公司「好不好」，只回答三件事：哪些事已经证实、哪些还不知道、接受前应该核实什么。
+
+[使用示例](#quick-example) · [开始使用](#quick-start) · [English](#english-overview)
+
+<a id="quick-example"></a>
+
+## 一次使用示例
+
+**虚构输入：**「我准备接受某公司的产品经理 Offer，城市是杭州。请先核实签约主体，重点查奖金口径、试用期和加班安排。」
+
+**输出：** 每个关切分别列出已证实内容、线索、冲突与未知，以及下一步应核实的问题；Skill 路径还能生成离线 HTML 档案。没有找到证据时保留“还不知道”。
+
+先看 [公开案例与证据链](cases/4399/)，或按 [快速开始](#quick-start) 选择 Skill／通用 Prompt。示例请求不代表对这家虚构公司的调查结论。
 
 ## 报告长什么样
 
@@ -19,6 +31,8 @@
 3. **每条断言只落四种状态。** 已证实 / 有线索 / 说法冲突 / 还不知道。「页面被拦截」「搜到 0 条」是检索状态，不是「不存在问题」。
 4. **主动找反证。** 对每个关键疑点写「观察 → 假设 → 支持与反证 → 当前判断」，负面材料分清匿名指控、进行中争议和已确认结果。
 5. **产出报告。** 一句话结论、逐条关切卡片（已知 / 未知 / 影响 / 下一步）、可复制给招聘人员的核实问题清单，以及离线 HTML 档案。
+
+<a id="quick-start"></a>
 
 ## 快速开始
 
@@ -95,6 +109,39 @@ node tests/verify_generated_html.mjs       # 缺省回归 4399，可传其它案
 - 不做账号池、反爬绕过或评价平台爬虫，纯公开搜索有时间上限。
 - 分析你的职位说明、录用通知或聊天记录前，会先要求脱敏（手机号、证件号、银行卡、签名等）；未获明确授权不会把这些材料发给外部服务。
 - 已验证环境：Apple M1 Mac、Python 3、Chrome/Playwright；企查查 MCP 完成过握手与一次真实主体识别。其它环境未实测。
+
+## 常见问题
+
+### 能直接判断这家公司值不值得去吗？
+
+报告帮助核实关切和证据边界，不把未经证实的信息压成一个公司评分。
+
+### 搜不到负面材料能证明没有风险吗？
+
+不能。搜到 0 条、页面被拦或只有匿名说法都不能证明不存在问题。
+
+### 必须购买企查查服务吗？
+
+不必须。企查查是可选补充，相关调用按该服务积分计费；公开检索仍需联网能力。
+
+### 通用 Prompt 也会生成 HTML 吗？
+
+通用 Prompt 主要输出文字报告。Skill 的 HTML 交付还需要文件读写和本机 Python 3。
+
+<a id="english-overview"></a>
+
+## English overview
+
+A pre-offer employer research Skill that separates confirmed findings, leads, conflicts and unknowns. Give it the employer, role, city and your concerns; it produces verification questions and, through the Skill workflow, an offline HTML case file.
+
+Start with [Quick start](#quick-start) or the [public case files](cases/4399/). Research requires web access; HTML rendering requires Python 3. Qichacha is optional and may charge credits. Missing search results and anonymous claims are not proof of an employer's conduct.
+
+## 相关项目
+
+[欧八同学的 AI Skills 与跳槽涨薪工具合集](https://github.com/ouxxyy/ouba-classmate)，还可以接着使用：
+
+- [整理有来源证据的岗位](https://github.com/ouxxyy/job-search)
+- [准备经历面试](https://github.com/ouxxyy/ai-interviewer)
 
 ## 作者
 
