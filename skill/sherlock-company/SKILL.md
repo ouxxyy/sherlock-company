@@ -23,9 +23,15 @@ Use primary sources first, then reliable reporting, then user-supplied experienc
 
 When legal or employment rules matter, verify current authoritative sources and keep them separate from company-specific facts. Do not turn a legal minimum into proof of actual company practice.
 
+## Search for decision-relevant experience
+
+Before online research, read [references/search-playbook.md](references/search-playbook.md). Search by concern, grounded aliases, city/role/team and time; reserve capacity for original posts and relevant comments. Separate firsthand accounts, interview reports, recruitment promotion and recycled summaries. Record actual access attempts and deduplicate shared origins.
+
+When authenticated reviews are requested or needed and a browser is available, read [references/authenticated-reviews.md](references/authenticated-reviews.md). Use the user’s existing authorized session through Tabbit when requested; login increases visibility, not truthfulness. Do not mark unattempted channels blocked or treat an accessible anonymous post as a verified workplace fact.
+
 ## Choose tools narrowly
 
-Use ordinary web research for public sources. If an official QCC MCP or CLI is available, read [references/qcc.md](references/qcc.md) and use it only for exact entity, corporate, operating, public-risk, or legal-record facts. QCC is optional and never a substitute for employee experience.
+Use ordinary web research for public sources, then browser reading for relevant dynamic or authenticated pages when available. If an official QCC MCP or CLI is available, read [references/qcc.md](references/qcc.md) and use it only for exact entity, corporate, operating, public-risk, or legal-record facts. QCC is optional and never a substitute for employee experience.
 
 If the user supplies JD, Offer, contract drafts, HR chat, or review screenshots, read [references/user-materials.md](references/user-materials.md). Ask for redaction of phone numbers, IDs, addresses, bank details, signatures, and unrelated names before analysis.
 
@@ -55,7 +61,7 @@ Lead with one sentence the user can act on. Then show:
 3. one card per user concern: known, unknown, impact, and next check;
 4. an Offer-stage checklist with copyable questions and desired evidence;
 5. employee-experience coverage and the next feasible evidence route;
-6. source ledger, dates, scope, limits, and blocked channels.
+6. source ledger, dates, scope, limits, and blocked or unattempted channels with actual reasons.
 
 For HTML, read [references/html-report.md](references/html-report.md), fill the case schema in [references/case-schema.md](references/case-schema.md), then run `scripts/render_report.py`. The renderer loads `assets/report-v2.css` by default; standalone sample pages are visual references, not executable templates. Keep Markdown and HTML derived from the same record. Use the detective IP as a visual guide, not as a source of theatrical claims.
 
