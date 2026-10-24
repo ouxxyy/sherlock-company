@@ -4,6 +4,9 @@
 
 想核实加班、奖金或团队管理，可以从公开资料查起，也可以让它通过 Tabbit 阅读你已登录的脉脉页面。它会区分招聘宣传、亲历自述和二手转述，告诉你哪些说法有依据、哪些仍需向目标团队核实。
 
+> [!TIP]
+> 🎁 扫码关注公众号「欧八同学」，免费领取 AI 案例与 Skill《大厂产品AI经验编程 200 套》→ [去扫码](#author)
+
 [使用示例](#quick-example) · [开始使用](#quick-start) · [English](#english-overview)
 
 <a id="quick-example"></a>
@@ -169,6 +172,9 @@ Start with [Quick start](#quick-start) or the [public case files](cases/4399/). 
 
 - [整理有来源证据的岗位](https://github.com/ouxxyy/job-search)
 - [准备经历面试](https://github.com/ouxxyy/ai-interviewer)
+- 全部项目与作者主页：[github.com/ouxxyy](https://github.com/ouxxyy)
+
+<a id="author"></a>
 
 ## 作者
 
@@ -176,7 +182,7 @@ Start with [Quick start](#quick-start) or the [public case files](cases/4399/). 
 
 联系我：[albertou.redboook.cn](https://albertou.redboook.cn/)
 
-- 微信公众号：扫码关注
+- 微信公众号：扫码关注，免费领取 AI 案例与 Skill《大厂产品AI经验编程 200 套》
 - 抖音：[搜索“欧八同学”](https://www.douyin.com/search/%E6%AC%A7%E5%85%AB%E5%90%8C%E5%AD%A6)
 - 小红书：[搜索“欧八同学”](https://www.xiaohongshu.com/search_result?keyword=%E6%AC%A7%E5%85%AB%E5%90%8C%E5%AD%A6)
 - X：[搜索“欧八同学”](https://x.com/search?q=%E6%AC%A7%E5%85%AB%E5%90%8C%E5%AD%A6&src=typed_query)
@@ -184,6 +190,8 @@ Start with [Quick start](#quick-start) or the [public case files](cases/4399/). 
 <p align="center">
   <img src="assets/wechat-qr.jpg" alt="欧八同学微信公众号二维码" width="260">
 </p>
+
+<p align="center"><sub>扫码关注「欧八同学」，免费领取《大厂产品AI经验编程 200 套》</sub></p>
 
 如果这个项目对你有用，欢迎点个 Star。遇到问题时，提交命令、报错和最小复现步骤就够了；请不要上传真实私人照片。
 
