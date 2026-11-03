@@ -89,3 +89,11 @@
 `employee_experience.coverage` 为 `limited` 或 `adequate` 时必须有 `evidence_kind=employee_experience` 的已登记来源；为 `none` 时 `evidence_ids` 应为空。`decision.state=先不接受` 必须提供已证实的 `basis_ids` 和 `boundary_trigger`；`decision.state=已足够决定` 要求所有关切均有证据且 `remaining_gaps_material=false`。
 
 QCC 来源可额外记录 `provider: "企查查"`、`tool_code`、`updated_as_of`；展示时仍与推理分开。
+
+## 默认预警的记录方式
+
+新调查须按 [company-warnings.md](company-warnings.md) 检查并在 `concerns` 前部保留“规模与初创”“感恩与业绩标语”“居民楼办公”三类结果，与重复的用户关切合并。任一触发时在 `decision.reason` 提醒，并加入对应 `checklist` 核实问题。人数与初创是独立条件，规模卡应分别说明两者。
+
+卡片标题用“预警：…”或“待核实预警：…”区分依据强度，`status` 仍只用四态，不填 `warning`。例如标题“待核实预警：注册地址在居民楼，实际办公地未知”可用 `signal`，而单独已核实的注册地址事实放入 `verified`；没有任何地址依据时卡片为 `unknown`。每项引用已登记的 `evidence_ids`，缺证时为空并写明补证路线。
+
+这是调查内容要求，不是新增结构字段。渲染器仅校验结构与证据引用，不能自动判断人数、初创阶段或图片内容；旧案仍可渲染，不代表已经补查这三类预警。

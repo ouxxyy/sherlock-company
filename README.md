@@ -4,6 +4,8 @@
 
 想核实加班、奖金或团队管理，可以从公开资料查起，也可以让它通过 Tabbit 阅读你已登录的脉脉页面。它会区分招聘宣传、亲历自述和二手转述，告诉你哪些说法有依据、哪些仍需向目标团队核实。
 
+每次调查还会主动检查三类预警：**公司少于 100 人或属于初创公司、密集的感恩或业绩冲刺标语、居民楼办公**。有依据就提醒，证据不充分则标为待核实，并给出可向招聘人员追问的问题。
+
 > [!TIP]
 > 🎁 扫码关注公众号「欧八同学」，免费领取 AI 案例与 Skill《大厂产品AI经验编程 200 套》→ [去扫码](#author)
 
@@ -33,7 +35,17 @@
 2. **按关切检索，建立证据账本。** 用公司别名、城市、岗位与具体问题寻找原文及评论，区分亲历、面经、内推宣传与二手汇编，合并同源转载。搜索摘要和匿名体验默认是线索；原文可读也不等于内容真实。
 3. **每条断言只落四种状态。** 已证实 / 有线索 / 说法冲突 / 还不知道。「页面被拦截」「搜到 0 条」是检索状态，不是「不存在问题」。
 4. **主动找反证。** 对每个关键疑点写「观察 → 假设 → 支持与反证 → 当前判断」，负面材料分清匿名指控、进行中争议和已确认结果。
-5. **产出报告。** 一句话结论、逐条关切卡片（已知 / 未知 / 影响 / 下一步）、可复制给招聘人员的核实问题清单，以及离线 HTML 档案。
+5. **产出报告。** 一句话结论、三类默认预警检查、逐条关切卡片（已知 / 未知 / 影响 / 下一步）、可复制给招聘人员的核实问题清单，以及离线 HTML 档案。
+
+## 三类默认预警
+
+| 检查项 | 何时提醒 | 还会核实什么 |
+| --- | --- | --- |
+| 规模与初创 | 公司少于 100 人，**或**当前属于初创公司，任一满足即提醒 | 实际人数、主体与统计日期、当前业务阶段、岗位和薪酬安排；参保人数不等于员工总数，恰好 100 人不因人数触发 |
+| 感恩与业绩标语 | 办公环境或公司材料中密集、反复出现“感恩公司/老板”“冲刺××”“军令状”等内容 | 原话、位置、时间和活动背景，以及绩效、工时和未达标处理；单句价值观或同图转载不能证明“很多” |
+| 居民楼办公 | 实际办公室位于住宅单元；仅注册地址为居民楼时，也会提示实际办公地待核实 | 注册地、面试地和日常工作地的区别，楼宇/单元用途与搬迁情况；商住楼中的商业办公单元不能直接算住宅办公 |
+
+这三类会进入开头提醒、关切卡片和接受录用前的核实清单。证据不足时写“待核实预警”；完全没有材料时保留未知，不写“已排除风险”。预警不自动得出“不值得入职”，也不证明公司违法或管理有问题。完整判断规则见 [公司默认预警检查](./skill/sherlock-company/references/company-warnings.md)。
 
 <a id="quick-start"></a>
 
@@ -73,6 +85,8 @@ Skill 需要智能体具备联网搜索和文件读写能力；生成 HTML 报�
 | 拼多多 | `拼多多 后端开发 上海` | [report.html](./cases/pdd-backend-sh/report.html) |
 
 三个案例的结论都落在四档状态之一（如「核实后再接受」），不自动生成星级或百分比评分。
+
+这些历史案例尚未按新增的三类预警规则补查，供查看报告形式与原有证据链；不把旧报告当作已完成新检查的结果。
 
 ## 员工评价与登录态搜索
 
@@ -163,6 +177,8 @@ node tests/verify_generated_html.mjs       # 缺省回归 4399，可传其它案
 A pre-offer employer research Skill that separates confirmed findings, leads, conflicts and unknowns. Give it the employer, role, city and your concerns; it produces verification questions and, through the Skill workflow, an offline HTML case file.
 
 Optional Tabbit browsing can read accessible Maimai discussions and comments in your own signed-in session. Anonymous reviews remain leads, and access to every platform or company review page is not guaranteed.
+
+Every new investigation checks for companies with fewer than 100 employees or at the startup stage, dense gratitude/performance-pressure slogans, and residential workplaces. Warnings retain their evidence limits and lead to verification questions; they do not automatically mean rejecting an offer.
 
 Start with [Quick start](#quick-start) or the [public case files](cases/4399/). Research requires web access; HTML rendering requires Python 3. Qichacha is optional and may charge credits. Missing search results and anonymous claims are not proof of an employer's conduct.
 

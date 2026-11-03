@@ -29,6 +29,16 @@ Before online research, read [references/search-playbook.md](references/search-p
 
 When authenticated reviews are requested or needed and a browser is available, read [references/authenticated-reviews.md](references/authenticated-reviews.md). Use the user’s existing authorized session through Tabbit when requested; login increases visibility, not truthfulness. Do not mark unattempted channels blocked or treat an accessible anonymous post as a verified workplace fact.
 
+## Check the three default warnings
+
+For every company investigation, read [references/company-warnings.md](references/company-warnings.md) and check these alongside the user's concerns, even when not explicitly requested:
+
+- **规模与初创预警**：the company has fewer than 100 people **or** is currently a startup. Either condition triggers a warning independently.
+- **感恩与业绩标语预警**：the workplace or company materials show many or repeatedly used gratitude/loyalty or performance-pressure slogans, such as “感恩公司”“冲刺××业绩”.
+- **居民楼办公预警**：the actual workplace is in a residential building. If only a residential registered address is known, issue an address warning pending workplace verification.
+
+Warn when supported; label leads or unresolved contradictions **待核实预警**. With no usable evidence, explicitly mark the check unknown and give the next check. These are prompts to investigate scale, stability, management and workplace conditions, not proof of misconduct or an automatic rejection. Preserve evidence status, entity, date, scope and counterchecks; follow the reference for threshold, proxy and image-context boundaries.
+
 ## Choose tools narrowly
 
 Use ordinary web research for public sources, then browser reading for relevant dynamic or authenticated pages when available. If an official QCC MCP or CLI is available, read [references/qcc.md](references/qcc.md) and use it only for exact entity, corporate, operating, public-risk, or legal-record facts. QCC is optional and never a substitute for employee experience.
@@ -46,7 +56,7 @@ Default to a plain-language state:
 - `已足够决定`：the user's concerns have current, relevant evidence and the remaining gaps are not material.
 - `先不接受`：a verified fact crosses a boundary the user actually stated.
 
-Never derive a star rating or numeric confidence/completeness score unless the user explicitly requests a defined scoring model and the record supports it. Unknown is not negative evidence. A red flag is a verified fact or a refusal/inconsistency in the user's actual process, not merely missing web coverage.
+Never derive a star rating or numeric confidence/completeness score unless the user explicitly requests a defined scoring model and the record supports it. Unknown is not negative evidence. The default warnings above can surface supported facts or labeled leads; they do not establish misconduct. A reason to reject requires the decision evidence below, not merely missing web coverage.
 
 Move from `核实后再接受` to `先不接受` only when a verified fact crosses the user's stated boundary, written terms conflict on a decision-critical condition and the conflict is not resolved, or the responsible party refuses to confirm a decision-critical item before the deadline. Move to `已足够决定` only when each stated concern is answered with relevant evidence and remaining gaps would not change the user's choice.
 
@@ -58,13 +68,15 @@ Lead with one sentence the user can act on. Then show:
 
 1. the exact company/role/scope checked;
 2. verified facts, leads/conflicts, and unknowns in separate groups;
-3. one card per user concern: known, unknown, impact, and next check;
+3. the three default warning checks followed by one card per additional user concern: known, unknown, impact, and next check; merge overlapping concerns without dropping any check;
 4. an Offer-stage checklist with copyable questions and desired evidence;
 5. employee-experience coverage and the next feasible evidence route;
 6. source ledger, dates, scope, limits, and blocked or unattempted channels with actual reasons.
 
 For HTML, read [references/html-report.md](references/html-report.md), fill the case schema in [references/case-schema.md](references/case-schema.md), then run `scripts/render_report.py`. The renderer loads `assets/report-v2.css` by default; standalone sample pages are visual references, not executable templates. Keep Markdown and HTML derived from the same record. Use the detective IP as a visual guide, not as a source of theatrical claims.
 
+Mention triggered warnings, including pending ones, in the opening conclusion and put their detail in the first `concerns` cards and matching `checklist` items. Keep all three checks visible even when unknown. Use existing evidence states; “预警” is a presentation label, not a fifth status. Do not upgrade `decision.state` solely because a warning exists.
+
 Write visible interface text and case conclusions in natural Chinese. Prefer “职位说明”“录用通知”“招聘人员” over unexplained `JD` / `Offer` / `HR`. Keep English only when it is part of a legal entity name, source title, URL, product name, or a necessary term that is explained on first use. Do not add decorative English labels.
 
-Stop when the identity is resolved or explicitly blocked, each concern has a result or named gap, decisive claims have sources and counterchecks, and the next actions are specific enough to use before the deadline.
+Stop when the identity is resolved or explicitly blocked, each concern and default warning check has a result or named gap, decisive claims have sources and counterchecks, and the next actions are specific enough to use before the deadline.
