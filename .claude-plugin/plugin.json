@@ -1,0 +1,21 @@
+{
+  "name": "sherlock-company",
+  "version": "1.0.0",
+  "description": "公司调查大师：入职前公司证据调查，区分已证实、线索、冲突与未知，输出 Offer 前核实清单与离线 HTML 档案",
+  "author": {
+    "name": "欧八同学 (ouxxyy)",
+    "url": "https://github.com/ouxxyy/ouba-classmate"
+  },
+  "repository": "https://github.com/ouxxyy/sherlock-company",
+  "homepage": "https://github.com/ouxxyy/ouba-classmate",
+  "license": "MIT",
+  "skills": "./skill/sherlock-company",
+  "keywords": [
+    "employer-research",
+    "company-investigation",
+    "career",
+    "chinese",
+    "claude-skill",
+    "ouba-classmate"
+  ]
+}
