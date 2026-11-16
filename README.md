@@ -1,5 +1,20 @@
 # 公司调查大师（sherlock-company）｜入职前查公司、员工评价与 Offer 核验 Skill
 
+<!-- discovery:start -->
+## 入职前查公司与 Offer 公司背景调查
+
+**接 Offer 前，怎么查公司并分清事实和员工评价？** 输入目标公司和岗位信息，汇总公开来源，分开记录已证实、线索、冲突和未知，生成下一步核实清单。
+
+Pre-offer employer research and company due diligence.
+
+**开始使用：** [安装与公司调查示例](#quick-start) · [查看输入输出](#quick-example)。
+
+**使用边界：** 证据不足保留未知；公开线索不是违法认定，也不能替代劳动合同核实和当面沟通。
+
+[按任务浏览欧八同学的全部工具](https://github.com/ouxxyy/ouba-classmate#按需求找)；如果本项目有帮助，欢迎收藏当前仓库。
+
+<!-- discovery:end -->
+
 <!-- hero:start -->
 
 <p>
