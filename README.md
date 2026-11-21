@@ -7,12 +7,15 @@
 
 Pre-offer employer research and company due diligence.
 
+**30 秒核心结论：** 4 态证据分类（已证实/线索/冲突/未知） · 3 类高危预警 · 4 项主体穿透核验 · MIT 开源 0 元 · 更新于 2026-11-21。
+
+**一键安装 / 收藏：** `npx skills add ouxxyy/ouba-classmate --skill sherlock-company` ｜ `claude plugin marketplace add ouxxyy/ouba-classmate` ｜ `gh api -X PUT /user/starred/ouxxyy/sherlock-company`
+
 **开始使用：** [安装与公司调查示例](#quick-start) · [查看输入输出](#quick-example)。
 
 **使用边界：** 证据不足保留未知；公开线索不是违法认定，也不能替代劳动合同核实和当面沟通。
 
 [按任务浏览欧八同学的全部工具](https://github.com/ouxxyy/ouba-classmate#按需求找)；如果本项目有帮助，欢迎收藏当前仓库。
-
 <!-- discovery:end -->
 
 <!-- hero:start -->
